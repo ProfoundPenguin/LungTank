@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-@&t5ao##@bfdrfu%a*dc=)in_4v7xcos$gmn4)xi=3_^h^wqp$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'view'
+    'view',
+    'payment',
+    'product',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +59,11 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+<<<<<<< HEAD
         'DIRS': [os.path.join(BASE_DIR,"template")],
+=======
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+>>>>>>> refs/remotes/origin/master
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -120,8 +126,20 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
+<<<<<<< HEAD
     BASE_DIR / "static",
 ]
+=======
+    os.path.join(BASE_DIR, 'static'),  # Specify the location of your static directory
+]
+
+# This is where static files will be collected by `collectstatic` command during deployment.
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+>>>>>>> refs/remotes/origin/master
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

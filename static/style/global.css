@@ -1,4 +1,125 @@
+<<<<<<< HEAD
 body {
     margin: 0px;
     padding: 0px;
+=======
+:root {
+    --black: #000000;
+    --white: #CDE8E5;
+    --yellow: #FCF006;
+}
+
+html {
+    font-size: 10px;
+}
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: var(--white);
+}
+
+* {
+    font-family: 'inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#global_content {
+    width: calc(100% - 42px);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#banner {
+    width: 100%;
+    position: relative;
+    height: 45px;
+    border-radius: 27.5px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+#banner #main_bar {
+    width: calc(100% - (9px + 45px) - 44px);
+    height: 100%;
+    padding-left: 22px;
+    padding-right: 22px;
+    background-color: var(--black);
+    border-radius: 27.5px;
+    display: flex;
+    align-items: center;
+}
+#banner #main_logo {
+    height: 20px;
+}
+#banner #menu_button {
+    width: 45px;
+    aspect-ratio: 1/1;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+#banner #menu_button #line {
+    height: 2px;
+    width: 21px;
+    background-color: var(--white);
+    border: 2px;
+}
+
+
+#footer {
+    padding-top: 100px;
+    width: 100%;
+}
+#footer #gapped, #footer #texts {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+#footer h1 {
+    font-size: 4.5rem;
+    font-weight: 500;
+    margin: 0px;
+    padding: 0px;
+}
+#footer ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+#footer ul a {
+    text-decoration: none;
+}
+#footer ul li {
+    margin-top: 4px;
+    font-weight: 500;
+    color: var(--black);
+    font-size: 1.6rem;
+}
+
+#social {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+#social #platform {
+    height: 59px;
+    width: 59px;
+    border: 1px solid var(--black);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#social #platform img {
+    height: 20px;
+>>>>>>> refs/remotes/origin/master
 }

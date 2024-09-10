@@ -1,0 +1,70 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lung tank</title>
+
+    <link rel="stylesheet" href="{% static "style/global.css" %}">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="global_content">
+        <div id="banner">
+            <div id="main_bar">
+                <a href="/">
+                    <img id="main_logo" src="{% static "img/main_icon.webp" %}" >
+                </a>
+            </div>
+            <div id="menu_button">
+                <div id="line"></div>
+                <div id="line"></div>
+            </div>
+        </div>
+    
+    
+    {% block content %}
+
+    {% endblock content %}
+
+    <div id="footer">
+        <div id="gapped">
+            <div id="texts">
+                <h1>Get Lungtank</h1>
+                <ul>
+                    <a href=""><li>User Manual & Safety Guidelines</li></a>
+                    <a href=""><li>Terms of Service</li></a>
+                    <a href=""><li>Refund Policy</li></a>
+                    <a href=""><li>Privacy Policy</li></a>
+                </ul>
+            </div>
+            <div id="social">
+                <a href="">
+                    <div id="platform">
+                        <img src="{% static "img/icons/insta.webp" %}" alt="">
+                    </div>
+                </a>
+                <a href="">
+                    <div id="platform">
+                        <img src="{% static "img/icons/facebook.webp" %}" alt="">
+                    </div>
+                </a>
+                <a href="">
+                    <div id="platform">
+                        <img src="{% static "img/icons/email.webp" %}" alt="">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>
