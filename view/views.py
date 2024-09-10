@@ -2,13 +2,16 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def index(request):
-    return HttpResponse("Hola cabrone")
+    return render(request, 'index.html')
 
 def product_detail(request, slug):
-    return HttpResponse("Product")
+    return render(request, 'product_detail.html')
 
 def products(request):
-    return HttpResponse("Products")
+    return render(request, 'products.html')
 
 def legal(request):
-    return HttpResponse("Legal")
+    return render(request, 'legal.html')
+
+def page404(request, exception=None):
+    return render(request, '404.html', {}, status=404)
