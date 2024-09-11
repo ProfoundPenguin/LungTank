@@ -59,11 +59,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-<<<<<<< HEAD
-        'DIRS': [os.path.join(BASE_DIR,"template")],
-=======
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
->>>>>>> refs/remotes/origin/master
+        'DIRS': [os.path.join(BASE_DIR,"templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,10 +122,6 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-<<<<<<< HEAD
-    BASE_DIR / "static",
-]
-=======
     os.path.join(BASE_DIR, 'static'),  # Specify the location of your static directory
 ]
 
@@ -139,7 +131,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
->>>>>>> refs/remotes/origin/master
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
