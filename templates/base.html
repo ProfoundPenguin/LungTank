@@ -17,18 +17,31 @@
     <div id="global_content">
         <div id="banner">
             <div id="main_bar">
-                <div id="left_menu" class="pc_only">
-                    <a href="">Home</a>
-                    <a href="">Products</a>
-                    <a href="">FAQs</a>
+                <div id="hover_effect"></div>
+                <div id="left_menu" class="pc_only pc_menu">
+                    <a href="">
+                        <div>Home</div>
+                    </a>
+                    <a href="">
+                        <div>Products</div>
+                    </a>
+                    <a href="">
+                        <div>FAQs</div>
+                    </a>
                 </div>
                 <a href="/" id="main_logo_parent">
                     <img id="main_logo" src="{% static "img/main_icon.webp" %}" >
                 </a>
-                <div id="right_menu" class="pc_only">
-                    <a href="">Tutorial</a>
-                    <a href="">Safety</a>
-                    <a href="">Contact</a>
+                <div id="right_menu" class="pc_only pc_menu">
+                    <a href="">
+                        <div>Tutorial</div>
+                    </a>
+                    <a href="">
+                        <div>Safety</div>
+                    </a>
+                    <a href="">
+                        <div>Contact</div>
+                    </a>
                 </div>
             </div>
             <div id="cart_button" class="tablet_only">
@@ -93,8 +106,7 @@
         </div>
     </div>
 </div>
-
-
+<script src="{% static 'script/effects.js' %}"></script>
 
 </body>
 </html>

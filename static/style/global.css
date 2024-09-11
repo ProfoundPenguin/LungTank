@@ -45,6 +45,22 @@ body {
     align-items: center;
     gap: 9px;
 }
+#banner #hover_effect {
+    width: 80px;
+    left: 0px;
+    height: 26px;
+    transition: 0.2s;
+    background-color: var(--grey);
+    border-radius: 25px;
+    opacity: 0;
+    position: absolute;
+}
+#banner .pc_menu div {
+    transition: 0.2s;
+}
+#banner #main_bar:hover #hover_effect {
+    opacity: 1;
+}
 #banner #main_bar {
     /* width: calc(100% - (9px + 45px) - 44px); */
     flex-grow: 1;
@@ -54,6 +70,7 @@ body {
     background-color: var(--black);
     border-radius: 27.5px;
     display: flex;
+    position: relative;
     align-items: center;
 }
 #banner #main_logo {
@@ -161,9 +178,6 @@ body {
     .tablet_only {
         display: block;
     }
-    /* #banner #main_bar {
-        width: calc(100% -(18px + 45px + 45px) - 44px);
-    } */
     #fanner #btt {
         width: 170px;
         border-radius: 45px;
@@ -220,6 +234,7 @@ body {
     #banner #left_menu, #banner #right_menu {
         width: calc(50% - 100px);
         display: flex;
+        z-index: 2;
         align-items: center;
         justify-content: space-between;
     }
@@ -231,14 +246,14 @@ body {
     }
 
     #footer #fanner {
-        height: 75px;
+        height: 52px;
     }
     #footer #btt {
         width: 250px;
     }
     #footer #fanner #btt {
-        height: 61px;
-        margin-right: 7px;
+        height: 44px;
+        margin-right: 4px;
     }
     #fanner p {
         margin-left: 20px;
