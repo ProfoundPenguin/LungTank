@@ -391,6 +391,9 @@ body.menu #banner #main_bar {
 }
 
 @media (min-width: 830px) {
+    .pc_only {
+        display: block;
+    }
     #shades {
         display: none !important;
     }

@@ -4,6 +4,9 @@ const banner_bar = document.querySelector('#banner #main_bar')
 
 pc_menu.forEach(element => {
     element.addEventListener('mouseover', ()=> {
+        pc_menu.forEach(theElement => {
+            theElement.style.color = "#CDE8E5"
+        })
         element.style.color = "#000000"
         // hover_effect.style.opacity = "1"
 
@@ -19,12 +22,14 @@ pc_menu.forEach(element => {
         // }, 100)
         
     })
-    element.addEventListener('mouseleave', ()=> {
-        element.style.color = "#CDE8E5"
-    })
+    // element.addEventListener('mouseleave', ()=> {
+    //     element.style.color = "#CDE8E5"
+    // })
 });
 
 banner_bar.addEventListener('mouseleave', ()=> {
-    // hover_effect.style.transition = "0s"
+    pc_menu.forEach(theElement => {
+        theElement.style.color = "#CDE8E5"
+    })
 })
 
