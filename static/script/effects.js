@@ -27,3 +27,4 @@ pc_menu.forEach(element => {
 banner_bar.addEventListener('mouseleave', ()=> {
     // hover_effect.style.transition = "0s"
 })
+

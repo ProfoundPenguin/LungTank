@@ -12,12 +12,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+    <script>
+        function menu() {
+            document.body.classList.toggle('menu')
+        }
+    </script>
 </head>
 <body>
     <div id="global_content">
         <div id="banner">
+            <div id="shades">
+                <div id="left"></div>
+                <div id="right"></div>
+            </div>
             <div id="main_bar">
-                <div id="hover_effect"></div>
+                <div id="hover_effect" class="pc_only"></div>
                 <div id="left_menu" class="pc_only pc_menu">
                     <a href="">
                         <div>Home</div>
@@ -32,6 +42,18 @@
                 <a href="/" id="main_logo_parent">
                     <img id="main_logo" src="{% static "img/main_icon.webp" %}" >
                 </a>
+                <div id="cart_button" class="mobile_only no_tablet">
+                    <p id="cart_count">0</p>
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <rect width="22" height="22" fill="url(#pattern0_40_31)"/>
+                        <defs>
+                        <pattern id="pattern0_40_31" patternContentUnits="objectBoundingBox" width="1" height="1">
+                        <use xlink:href="#image0_40_31" transform="scale(0.00689655)"/>
+                        </pattern>
+                        <image id="image0_40_31" width="145" height="145" xlink:href="data:image/png;base64,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"/>
+                        </defs>
+                    </svg>    
+                </div>
                 <div id="right_menu" class="pc_only pc_menu">
                     <a href="">
                         <div>Tutorial</div>
@@ -45,6 +67,7 @@
                 </div>
             </div>
             <div id="cart_button" class="tablet_only">
+                <p id="cart_count">0</p>
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <rect width="22" height="22" fill="url(#pattern0_40_31)"/>
                     <defs>
@@ -55,58 +78,69 @@
                     </defs>
                 </svg>    
             </div>
-            <div id="menu_button">
+            <div id="menu_button" onclick="menu()">
                 <div id="line"></div>
                 <div id="line"></div>
             </div>
-        </div>
-    
-    
-    {% block content %}
-
-    {% endblock content %}
-
-    <div id="footer">
-        <div id="gapped">
-            <div id="texts">
-                <h1>Get Lungtank</h1>
+            <div id="mobile_menu" class="mobile_only">
                 <ul>
-                    <a href=""><li>User Manual & Safety Guidelines</li></a>
-                    <a href=""><li>Terms of Service</li></a>
-                    <a href=""><li>Refund Policy</li></a>
-                    <a href=""><li>Privacy Policy</li></a>
+                    <a href=""><li>Home</li></a>
+                    <a href=""><li>Products</li></a>
+                    <a href=""><li>FAQs</li></a>
+                    <a href=""><li>Tutorial</li></a>
+                    <a href=""><li>Safety</li></a>
+                    <a href=""><li>Contact</li></a>
                 </ul>
             </div>
-            <div id="social">
-                <a href="">
-                    <div id="platform">
-                        <img src="{% static "img/icons/insta.webp" %}" alt="">
-                    </div>
-                </a>
-                <a href="">
-                    <div id="platform">
-                        <img src="{% static "img/icons/facebook.webp" %}" alt="">
-                    </div>
-                </a>
-                <a href="">
-                    <div id="platform">
-                        <img src="{% static "img/icons/email.webp" %}" alt="">
-                    </div>
-                </a>
-            </div>
         </div>
-        <div id="fanner">
-            <p>Copyright 2024 © All Rights Reserved</p>
-            <div id="btt">
-                <svg class="mobile_only" width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 7.5L7.5 1L14 7.5" stroke="#CDE8E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>   
-                <p class="pc_only">Back To Top</p>                 
+    
+        <div id="page_content" onclick="document.body.classList.remove('menu')">
+        {% block content %}
+
+        {% endblock content %}
+        </div>
+
+        <div id="footer" onclick="document.body.classList.remove('menu')">
+            <div id="gapped">
+                <div id="texts">
+                    <h1>Get Lungtank</h1>
+                    <ul>
+                        <a href=""><li>User Manual & Safety Guidelines</li></a>
+                        <a href=""><li>Terms of Service</li></a>
+                        <a href=""><li>Refund Policy</li></a>
+                        <a href=""><li>Privacy Policy</li></a>
+                    </ul>
+                </div>
+                <div id="social">
+                    <a href="">
+                        <div id="platform">
+                            <img src="{% static "img/icons/insta.webp" %}" alt="">
+                        </div>
+                    </a>
+                    <a href="">
+                        <div id="platform">
+                            <img src="{% static "img/icons/facebook.webp" %}" alt="">
+                        </div>
+                    </a>
+                    <a href="">
+                        <div id="platform">
+                            <img src="{% static "img/icons/email.webp" %}" alt="">
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div id="fanner">
+                <p>Copyright 2024 © All Rights Reserved</p>
+                <div id="btt">
+                    <svg class="mobile_only" width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 7.5L7.5 1L14 7.5" stroke="#CDE8E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>   
+                    <p class="pc_only">Back To Top</p>                 
+                </div>
             </div>
         </div>
     </div>
-</div>
-<script src="{% static 'script/effects.js' %}"></script>
+    <script src="{% static 'script/effects.js' %}"></script>
 
 </body>
 </html>
