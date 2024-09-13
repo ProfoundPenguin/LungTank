@@ -46,17 +46,23 @@ body {
     gap: 9px;
 }
 #banner #hover_effect {
-    width: 80px;
+    width: 0px;
     left: 0px;
+    pointer-events: none;
+    /* mix-blend-mode: difference; */
     height: 26px;
     transition: 0.2s;
     background-color: var(--grey);
+    /* backdrop-filter: invert(); */
     border-radius: 25px;
     opacity: 0;
+    /* z-index: 3; */
     position: absolute;
 }
 #banner .pc_menu div {
-    transition: 0.2s;
+    transition: 0.1s;
+    /* transition-delay: 0.1s; */
+    padding: 20px 21px;
 }
 #banner #main_bar:hover #hover_effect {
     opacity: 1;
@@ -239,10 +245,10 @@ body {
         justify-content: space-between;
     }
     #banner #left_menu {
-        padding-left: 10px;
+        padding-left: 0px;
     }
     #banner #right_menu {
-        padding-right: 10px;
+        padding-right: 5px;
     }
 
     #footer #fanner {
