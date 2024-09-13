@@ -391,6 +391,9 @@ body.menu #banner #main_bar {
 }
 
 @media (min-width: 830px) {
+    #shades {
+        display: none !important;
+    }
     .tablet_only {
         display: none !important;
     }
