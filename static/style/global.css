@@ -23,7 +23,7 @@ body {
 }
 
 .pc_only {
-    display: none;
+    display: none !important;
 }
 .tablet_only {
     display: none;
@@ -35,9 +35,32 @@ body {
     left: 50%;
     transform: translateX(-50%);
 }
+#take_dudes_glasses {
+    width: 100vw;
+    left: -20px;
+    height: 100%;
+    background-color: rgba(205,232,229, 0.7);
+    position: fixed;
+    z-index: 2;
+    opacity: 0;
+    transition: 0.2s ease-out;
+    pointer-events: none;
+}
+body.take_his_glasses #take_dudes_glasses {
+    opacity: 1;
+    pointer-events: all;
+}
+
+@supports (backdrop-filter: blur(10px)) {
+    #take_dudes_glasses {backdrop-filter: blur(7px);
+        background-color: transparent;}
+    
+}
+
 #banner {
     width: 100%;
     position: relative;
+    z-index: 3;
     height: 45px;
     border-radius: 27.5px;
     transition: 0.1s;
@@ -494,7 +517,7 @@ body.cart #banner #mobile_menu ul {
         max-width: 45px;
         background-color: var(--black);
         border-radius: 45px;
-        display: flex;
+        display: flex !important;
         justify-content: center;
         transition: 0.2s;
         gap: 10px;
@@ -526,7 +549,7 @@ body.cart #banner #mobile_menu ul {
         display: none !important;
     }
     .pc_only {
-        display: block;
+        display: block !important;
     }
     #shades {
         display: none !important;
@@ -577,7 +600,7 @@ body.cart #banner #mobile_menu ul {
     }
     #banner #left_menu, #banner #right_menu {
         width: calc(50% - 100px);
-        display: flex;
+        display: flex !important;
         z-index: 2;
         align-items: center;
         justify-content: space-between;

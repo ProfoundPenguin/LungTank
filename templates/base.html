@@ -15,21 +15,38 @@
 
     <script>
         var menuOpen = false;
+
+        function blur(b) {
+            if (b) {
+                document.body.classList.add('take_his_glasses')
+            } else {
+                document.body.classList.remove('take_his_glasses')
+            }
+        }
+
         function menu() {
             if(menuOpen) {
                 document.body.classList.remove('menu')
                 document.body.classList.remove('cart')
+                
+                blur(false)
 
                 menuOpen = false
             } else {
                 document.body.classList.add('menu')
+                blur(true)
 
                 menuOpen = true
             }
             
         }
         function cart() {
+            document.body.classList.add("menu")
             document.body.classList.add("cart")
+  
+            blur(true)
+
+            menuOpen = true
         }
     </script>
 </head>
@@ -80,7 +97,7 @@
                     </a>
                 </div>
             </div>
-            <div id="cart_button" class="tablet_only">
+            <div id="cart_button" onclick="cart()" class="tablet_only">
                 <p id="cart_count">0</p>
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <rect width="22" height="22" fill="url(#pattern0_40_31)"/>
@@ -169,6 +186,8 @@
             </div>
         </div>
     
+        <div id="take_dudes_glasses"></div>
+
         <div id="page_content" onclick="document.body.classList.remove('menu')">
         {% block content %}
 
