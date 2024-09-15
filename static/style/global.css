@@ -207,7 +207,8 @@ body {
     }
 }
 
-@media (min-width: 830px) {
+@media (min-width: 900px) {
+    
     .tablet_only {
         display: none !important;
     }
