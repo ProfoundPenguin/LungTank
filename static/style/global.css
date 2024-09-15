@@ -371,8 +371,8 @@ body.cart #banner #mobile_menu #cart {
     padding-left: 15px;
 }
 #banner #mobile_menu #cart #content {
-    height: calc(100% - 30px - 15px);
-    padding-top: 35px;
+    height: calc(100% - 5px - 15px);
+    padding-top: 10px;
     display: flex;
     flex-direction: column;
     padding-bottom: 15px;
