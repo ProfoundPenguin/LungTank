@@ -48,11 +48,19 @@
 
             menuOpen = true
         }
+        function closeall() {
+            menuOpen = true
+            menu()
+            blur(false)
+        }
     </script>
 </head>
 <body class="">
     <div id="global_content">
+        <div id="pc_cart" class="pc_only"></div>
+        <div id="pc_blur"></div>
         <div id="banner">
+            
             <div id="shades">
                 <div id="left"></div>
                 <div id="right"></div>
@@ -188,13 +196,13 @@
     
         <div id="take_dudes_glasses"></div>
 
-        <div id="page_content" onclick="document.body.classList.remove('menu')">
+        <div id="page_content" onclick=" onclick="closeall()"">
         {% block content %}
 
         {% endblock content %}
         </div>
 
-        <div id="footer" onclick="document.body.classList.remove('menu')">
+        <div id="footer" onclick="closeall()">
             <div id="gapped">
                 <div id="texts">
                     <h1>Get Lungtank</h1>

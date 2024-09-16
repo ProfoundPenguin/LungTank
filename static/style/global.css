@@ -16,6 +16,7 @@ html, body {
 
 body {
     background-color: var(--white);
+    overflow-x: hidden;
 }
 
 * {
@@ -34,6 +35,7 @@ body {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+    top: 0px;
 }
 #take_dudes_glasses {
     width: 100vw;
@@ -510,7 +512,7 @@ body.cart #banner #mobile_menu ul {
         opacity: 0 !important;
         pointer-events: none;
     }
-    #cart_button {
+    #cart_button.tablet_only {
         height: 45px;   
         z-index: 2;
         width: 70px;
@@ -548,22 +550,52 @@ body.cart #banner #mobile_menu ul {
     .tablet_only {
         display: none !important;
     }
+    #cart_button.tablet_only {
+        display: none !important;
+    }
     .pc_only {
         display: block !important;
     }
     #shades {
         display: none !important;
     }
+    #pc_cart {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        background-color: var(--black);
+        border-radius: 22px;
+        width: 500px;
+        z-index: 10;
+        height: calc(100vh - 55px);
+    }
+    #pc_blur {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: -21px;
+        z-index: 9;
+        left: 0px;
+        background-color: rgba(205,232,229, 0.7);
+    }
+    @supports (backdrop-filter: blur(10px)) {
+        #pc_blur {
+            backdrop-filter: blur(7px);
+            background-color: transparent;
+        }
+        
+    }
     #cart_button {
         position: absolute;
-        right: 0px;
+        right: 15px;
         background-color: transparent;
-        display: flex;
+        display: flex !important;
         justify-content: center;
         gap: 5px;
         cursor: pointer;
         width: 100px;
         max-width: 100px;
+        align-items: center;
         height: 100%;
     }
     #cart_button p {
