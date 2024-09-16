@@ -1,0 +1,73 @@
+:root {
+    --black: #000000;
+    --white: #CDE8E5;
+    --yellow: #FCF006;
+    --grey: #89A19F;
+}
+
+#landing {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 45vh;
+    max-height: 600px;
+}
+#landing svg {
+    width: 70%;
+}
+#landing #scrollDown {
+    width: 130px;
+    height: 41px;
+    color: var(--white);
+    font-size: 1.2rem;
+    display: flex;
+    margin-top: 15px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--black);
+    border-radius: 40px;
+    margin-bottom: 8px;
+}
+#landing #dot_1 {
+    width: 6px;
+    height: 6px;
+    margin-bottom: 4px;
+    border-radius: 50%;
+    background-color: var(--black);
+}
+#landing #dot_2 {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: var(--black);
+}
+
+
+@media (min-width: 430px) {
+    #landing svg {
+        width: 60%;
+    }
+}
+@media (min-width: 550px) {
+    #landing svg {
+        width: 40%;
+    }
+}
+
+@media (min-width: 900px) {
+    #landing svg {
+        width: auto;
+        height: 30%;
+    }
+}
+
+@media (min-width: 1300px) {
+    #landing {
+        height: 55vh;
+    }
+    #landing svg {
+        height: 40%;
+    }
+}

@@ -16,6 +16,7 @@ html, body {
 
 body {
     background-color: var(--white);
+    overflow-x: hidden;
 }
 
 * {
@@ -510,7 +511,7 @@ body.cart #banner #mobile_menu ul {
         opacity: 0 !important;
         pointer-events: none;
     }
-    #cart_button {
+    #cart_button.tablet_only {
         height: 45px;   
         z-index: 2;
         width: 70px;
@@ -545,7 +546,13 @@ body.cart #banner #mobile_menu ul {
 }
 
 @media (min-width: 900px) {
+    .mobile_only {
+        display: none !important;
+    }
     .tablet_only {
+        display: none !important;
+    }
+    #cart_button.tablet_only {
         display: none !important;
     }
     .pc_only {
@@ -558,9 +565,10 @@ body.cart #banner #mobile_menu ul {
         position: absolute;
         right: 0px;
         background-color: transparent;
-        display: flex;
+        display: flex !important;
         justify-content: center;
         gap: 5px;
+        align-items: center;
         cursor: pointer;
         width: 100px;
         max-width: 100px;
