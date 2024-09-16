@@ -547,6 +547,9 @@ body.cart #banner #mobile_menu ul {
 }
 
 @media (min-width: 900px) {
+    .mobile_only {
+        display: none !important;
+    }
     .tablet_only {
         display: none !important;
     }
@@ -592,6 +595,7 @@ body.cart #banner #mobile_menu ul {
         display: flex !important;
         justify-content: center;
         gap: 5px;
+        align-items: center;
         cursor: pointer;
         width: 100px;
         max-width: 100px;
