@@ -564,19 +564,161 @@ body.cart #banner #mobile_menu ul {
     }
     #pc_cart {
         position: absolute;
-        top: 0px;
-        right: 0px;
+        top: 21px;
+        right: 25px;
         background-color: var(--black);
         border-radius: 22px;
         width: 500px;
         z-index: 10;
         height: calc(100vh - 55px);
     }
+    #pc_cart #cart_banner {
+        display: flex;
+        padding: 10px;
+        justify-content: space-between;
+        width: calc(100% - 20px);
+        height: 37px;
+    }
+    #pc_cart #cart_banner button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--white);
+        color: var(--black);
+        font-size: 1.2rem;
+        height: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 13px;
+        border: 0px;
+        gap: 12px;
+    }
+    #pc_cart #cart_banner button p {
+        margin: 0px;
+    }
+    #pc_cart #cart_banner #items {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding-right: 14px;
+    }
+    #pc_cart #cart_banner #items p {
+        font-size: 1.2rem;
+        color: var(--white);
+        border-bottom: 1px solid var(--white);
+    }
+    #pc_cart #content {
+        width: calc(100% - 60px);
+        height: calc(100% - 117px);
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        padding: 30px 30px 0px 30px;
+    }
+    #pc_cart #content #cart_content {
+        flex-grow: 1;
+        width: 100%;
+        position: relative;
+        overflow-x: hidden;
+    }
+    #pc_cart #content .title {
+        font-size: 1.2rem;
+        color: var(--white);
+        margin: 0px;
+        padding: 0px;
+    }
+    #pc_cart #content #item {
+        width: calc(100% - 50px);
+        padding: 20px 25px;
+        display: flex;
+        gap: 25px;
+        margin-bottom: 10px;
+        align-items: center;
+        background-color: #89A19F;
+        border-radius: 13px;
+    }
+    #pc_cart #content #item #img {
+        height: 61px;
+    }
+    #pc_cart #content #item #description {
+        flex-grow: 1;
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    #pc_cart #content #item #description p {
+        margin: 0px;
+        font-size: 1.2rem;
+        color: var(--black);
+        padding: 0px;
+    }
+    #pc_cart #content #item #amount {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        justify-content: center;
+    }
+    #pc_cart #content #item #amount p {
+        font-size: 1.2rem;
+        margin: 0px;
+        padding: 0px;
+    }
+    #pc_cart #content #item #delete {
+        width: 41px;
+        height: 41px;
+        background-color: var(--white);
+        display: flex;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+    }
+    #pc_cart #content #cart_footer {
+        margin-left: 0px;
+        width: calc(100% - 0px);
+        background-color: #89A19F;
+        height: 52px;
+        border-radius: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    #cart_content #ending_gradient {
+        bottom: 120px;
+        width: 450px;
+    }
+    #pc_cart #content #cart_footer p {
+        font-size: 1.2rem;
+        color: var(--black);
+        margin: 0px;
+        padding: 0px;
+        margin-left: 25px;
+    }
+    #pc_cart #content #cart_footer button {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.4rem;
+        color: var(--white);
+        padding-left: 40px;
+        padding-right: 40px;
+        border: 0px;
+        border-radius: 50px;
+        height: 40px;
+        margin-right: 6px;
+        background-color: var(--black);
+    }
+    #pc_cart #content #cart_footer button p {
+        margin: 0px;
+        color: var(--white);
+    }
     #pc_blur {
         width: 100vw;
         height: 100vh;
+        pointer-events: none;
+        opacity: 1;
         position: fixed;
-        top: -21px;
+        top: 0px;
         z-index: 9;
         left: 0px;
         background-color: rgba(205,232,229, 0.7);

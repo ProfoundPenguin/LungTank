@@ -57,9 +57,317 @@
     </script>
 </head>
 <body class="">
+    <div id="pc_cart" class="pc_only">
+        <div id="cart_banner">
+            <button>
+                <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.3623 1L15.3623 15" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M15 1L0.999999 15" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <p>Close Cart</p>    
+            </button>
+            <div id="items">
+                <p>0 Items</p>
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <rect width="22" height="22" fill="url(#pattern0_40_31)"/>
+                    <defs>
+                    <pattern id="pattern0_40_31" patternContentUnits="objectBoundingBox" width="1" height="1">
+                    <use xlink:href="#image0_40_31" transform="scale(0.00689655)"/>
+                    </pattern>
+                    <image id="image0_40_31" width="145" height="145" xlink:href="data:image/png;base64,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"/>
+                    </defs>
+                </svg>                    
+            </div>
+        </div>
+        <div id="content">
+            <p class="title">Your Cart</p>
+            <div id="cart_content">
+                <div id="ending_gradient"></div>
+                <div id="item">
+                    <div id="img">
+                        <img src="{% static "img/test.png" %}">
+                        
+                    </div>
+                    <div id="description">
+                        <p class="name">Something</p>
+                        <p class="price">2.9 USD</p>
+                    </div>
+                    <div id="amount">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="8" r="8" fill="#CDE8E5"/>
+                            <path d="M7.10086 5.84721C7.46582 5.09743 8.53418 5.09743 8.89914 5.84721L9.96 8.02667L10.7791 9.62204C11.2015 10.4447 10.3767 11.3507 9.51811 11.0073L8.37135 10.5486C8.13293 10.4532 7.86697 10.4532 7.62856 10.5486L6.48191 11.0072C5.62327 11.3507 4.79853 10.4447 5.22091 9.62201L6.04 8.02667L7.10086 5.84721Z" fill="black"/>
+                        </svg>
+                        <p id="unit">3</p>
+                        <svg style="transform: rotate(180deg)" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="8" r="8" fill="#CDE8E5"/>
+                            <path d="M7.10086 5.84721C7.46582 5.09743 8.53418 5.09743 8.89914 5.84721L9.96 8.02667L10.7791 9.62204C11.2015 10.4447 10.3767 11.3507 9.51811 11.0073L8.37135 10.5486C8.13293 10.4532 7.86697 10.4532 7.62856 10.5486L6.48191 11.0072C5.62327 11.3507 4.79853 10.4447 5.22091 9.62201L6.04 8.02667L7.10086 5.84721Z" fill="black"/>
+                        </svg>                                            
+                    </div>
+                    <div id="delete">
+                        <svg width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect width="14" height="20" fill="url(#pattern0_132_43)"/>
+                            <defs>
+                            <pattern id="pattern0_132_43" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <use xlink:href="#image0_132_43" transform="matrix(0.014881 0 0 0.0104167 -0.214286 0)"/>
+                            </pattern>
+                            <image id="image0_132_43" width="96" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAADIklEQVR4nO2dOayMURiG31xBaU0QEQkay43OUhGJwtIIUVkrokN3LVEQKpSWDo0QW2K5GqKxlZZG0LmREHcpZC73vvIlv0ZMcsecc+b9ft+TPO1kznOS/5/M/80ZIAiCIAiCIAiCQItpAA4BeAbgKwCO0S8AngLoATC104vwynYA/S1Eb6a9xrZOL8YbRxOE/1N7zWAMHMsQ/7en6rIDiwHcATCQMRadaA1uA1hUKn43gCGBhVPMoapNdh4KLJai9uaOPw7AsMBCKepw1Sg2ADXdACMuQWi6AQ9QgLgJ46/xB0vdhFF95LoF4JvAdZcd1hrcBLCwVPwgCIIgCIIgCAJUz235n9mjtPU7BIKwsPbMWobVAkFY2FUQYr5AEBZ2HoSYAGBEIAoLOVKtWYo+gTAs5CcI8kIgDAv5HIJcFwjDQl6DIGcEwrCQpyHIAYEwLOR+CLJFIAwLuRmCLBcIw0IugyCzBMKwkDMhSBeAhkAcZrZRrVWSDwKBmNn3EOaxQCBm9hGEuSwQiJm9BGFOCARiZo9DmL0CgZjZPRBmg0AgZnY9hOkWCMTMLoEwkwUCMbOTIM5AzX8DIM8bgVDM5Cs44L5AKGbyHhxwQSAUM3kODjgiEIqZtAlAeXYKhGImbQJQnjUCoZhJmwCUZ4FAKGbSJgDlmQhgVCAWEztarc0FnwWCMbE2+eeGlwLBmFib/HPDDYFgTKxN/rnhrEAwJtYm/9xwUCAYE2uTf27YKhCMibXJPzesEAjGxNrknxtmCwRjYm3yzw1dNTtbrqE8DdeMjwLhmEib+HPHE4FwTKRN/LnjikA4JtIm/txxUiAcE2kTf+7YJxCOibSJP3dsFAjHRNrEnzuWCoRjIoudB5qSKQLhmEib+HNJHY65H4Rj3goEZJu+hmN6BQKyTW3Szy0XBQKyTc/DMTn+DYmFPQzH1OH4gk1wzAwAPwQiso2voafDOVcFQvIftS8U3TO3+ixNZ/YDmIOasBbAd4GobOHSsw41Y2V1zgLFfeftAXwr2FGPu6uf+vSJHHX5s3ovdwHsAjC+05GCIAiCIAiCIECt+QWhxg3O/REwaQAAAABJRU5ErkJggg=="/>
+                            </defs>
+                            </svg>
+                                                                     
+                    </div>
+                </div>
+                <div id="item">
+                    <div id="img">
+                        <img src="{% static "img/test.png" %}">
+                        
+                    </div>
+                    <div id="description">
+                        <p class="name">Something</p>
+                        <p class="price">2.9 USD</p>
+                    </div>
+                    <div id="amount">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="8" r="8" fill="#CDE8E5"/>
+                            <path d="M7.10086 5.84721C7.46582 5.09743 8.53418 5.09743 8.89914 5.84721L9.96 8.02667L10.7791 9.62204C11.2015 10.4447 10.3767 11.3507 9.51811 11.0073L8.37135 10.5486C8.13293 10.4532 7.86697 10.4532 7.62856 10.5486L6.48191 11.0072C5.62327 11.3507 4.79853 10.4447 5.22091 9.62201L6.04 8.02667L7.10086 5.84721Z" fill="black"/>
+                        </svg>
+                        <p id="unit">3</p>
+                        <svg style="transform: rotate(180deg)" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="8" r="8" fill="#CDE8E5"/>
+                            <path d="M7.10086 5.84721C7.46582 5.09743 8.53418 5.09743 8.89914 5.84721L9.96 8.02667L10.7791 9.62204C11.2015 10.4447 10.3767 11.3507 9.51811 11.0073L8.37135 10.5486C8.13293 10.4532 7.86697 10.4532 7.62856 10.5486L6.48191 11.0072C5.62327 11.3507 4.79853 10.4447 5.22091 9.62201L6.04 8.02667L7.10086 5.84721Z" fill="black"/>
+                        </svg>                                            
+                    </div>
+                    <div id="delete">
+                        <svg width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect width="14" height="20" fill="url(#pattern0_132_43)"/>
+                            <defs>
+                            <pattern id="pattern0_132_43" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <use xlink:href="#image0_132_43" transform="matrix(0.014881 0 0 0.0104167 -0.214286 0)"/>
+                            </pattern>
+                            <image id="image0_132_43" width="96" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAADIklEQVR4nO2dOayMURiG31xBaU0QEQkay43OUhGJwtIIUVkrokN3LVEQKpSWDo0QW2K5GqKxlZZG0LmREHcpZC73vvIlv0ZMcsecc+b9ft+TPO1kznOS/5/M/80ZIAiCIAiCIAiCQItpAA4BeAbgKwCO0S8AngLoATC104vwynYA/S1Eb6a9xrZOL8YbRxOE/1N7zWAMHMsQ/7en6rIDiwHcATCQMRadaA1uA1hUKn43gCGBhVPMoapNdh4KLJai9uaOPw7AsMBCKepw1Sg2ADXdACMuQWi6AQ9QgLgJ46/xB0vdhFF95LoF4JvAdZcd1hrcBLCwVPwgCIIgCIIgCAJUz235n9mjtPU7BIKwsPbMWobVAkFY2FUQYr5AEBZ2HoSYAGBEIAoLOVKtWYo+gTAs5CcI8kIgDAv5HIJcFwjDQl6DIGcEwrCQpyHIAYEwLOR+CLJFIAwLuRmCLBcIw0IugyCzBMKwkDMhSBeAhkAcZrZRrVWSDwKBmNn3EOaxQCBm9hGEuSwQiJm9BGFOCARiZo9DmL0CgZjZPRBmg0AgZnY9hOkWCMTMLoEwkwUCMbOTIM5AzX8DIM8bgVDM5Cs44L5AKGbyHhxwQSAUM3kODjgiEIqZtAlAeXYKhGImbQJQnjUCoZhJmwCUZ4FAKGbSJgDlmQhgVCAWEztarc0FnwWCMbE2+eeGlwLBmFib/HPDDYFgTKxN/rnhrEAwJtYm/9xwUCAYE2uTf27YKhCMibXJPzesEAjGxNrknxtmCwRjYm3yzw1dNTtbrqE8DdeMjwLhmEib+HPHE4FwTKRN/LnjikA4JtIm/txxUiAcE2kTf+7YJxCOibSJP3dsFAjHRNrEnzuWCoRjIoudB5qSKQLhmEib+HNJHY65H4Rj3goEZJu+hmN6BQKyTW3Szy0XBQKyTc/DMTn+DYmFPQzH1OH4gk1wzAwAPwQiso2voafDOVcFQvIftS8U3TO3+ixNZ/YDmIOasBbAd4GobOHSsw41Y2V1zgLFfeftAXwr2FGPu6uf+vSJHHX5s3ovdwHsAjC+05GCIAiCIAiCIECt+QWhxg3O/REwaQAAAABJRU5ErkJggg=="/>
+                            </defs>
+                            </svg>
+                                                                     
+                    </div>
+                </div>
+                <div id="item">
+                    <div id="img">
+                        <img src="{% static "img/test.png" %}">
+                        
+                    </div>
+                    <div id="description">
+                        <p class="name">Something</p>
+                        <p class="price">2.9 USD</p>
+                    </div>
+                    <div id="amount">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="8" r="8" fill="#CDE8E5"/>
+                            <path d="M7.10086 5.84721C7.46582 5.09743 8.53418 5.09743 8.89914 5.84721L9.96 8.02667L10.7791 9.62204C11.2015 10.4447 10.3767 11.3507 9.51811 11.0073L8.37135 10.5486C8.13293 10.4532 7.86697 10.4532 7.62856 10.5486L6.48191 11.0072C5.62327 11.3507 4.79853 10.4447 5.22091 9.62201L6.04 8.02667L7.10086 5.84721Z" fill="black"/>
+                        </svg>
+                        <p id="unit">3</p>
+                        <svg style="transform: rotate(180deg)" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="8" r="8" fill="#CDE8E5"/>
+                            <path d="M7.10086 5.84721C7.46582 5.09743 8.53418 5.09743 8.89914 5.84721L9.96 8.02667L10.7791 9.62204C11.2015 10.4447 10.3767 11.3507 9.51811 11.0073L8.37135 10.5486C8.13293 10.4532 7.86697 10.4532 7.62856 10.5486L6.48191 11.0072C5.62327 11.3507 4.79853 10.4447 5.22091 9.62201L6.04 8.02667L7.10086 5.84721Z" fill="black"/>
+                        </svg>                                            
+                    </div>
+                    <div id="delete">
+                        <svg width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect width="14" height="20" fill="url(#pattern0_132_43)"/>
+                            <defs>
+                            <pattern id="pattern0_132_43" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <use xlink:href="#image0_132_43" transform="matrix(0.014881 0 0 0.0104167 -0.214286 0)"/>
+                            </pattern>
+                            <image id="image0_132_43" width="96" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAADIklEQVR4nO2dOayMURiG31xBaU0QEQkay43OUhGJwtIIUVkrokN3LVEQKpSWDo0QW2K5GqKxlZZG0LmREHcpZC73vvIlv0ZMcsecc+b9ft+TPO1kznOS/5/M/80ZIAiCIAiCIAiCQItpAA4BeAbgKwCO0S8AngLoATC104vwynYA/S1Eb6a9xrZOL8YbRxOE/1N7zWAMHMsQ/7en6rIDiwHcATCQMRadaA1uA1hUKn43gCGBhVPMoapNdh4KLJai9uaOPw7AsMBCKepw1Sg2ADXdACMuQWi6AQ9QgLgJ46/xB0vdhFF95LoF4JvAdZcd1hrcBLCwVPwgCIIgCIIgCAJUz235n9mjtPU7BIKwsPbMWobVAkFY2FUQYr5AEBZ2HoSYAGBEIAoLOVKtWYo+gTAs5CcI8kIgDAv5HIJcFwjDQl6DIGcEwrCQpyHIAYEwLOR+CLJFIAwLuRmCLBcIw0IugyCzBMKwkDMhSBeAhkAcZrZRrVWSDwKBmNn3EOaxQCBm9hGEuSwQiJm9BGFOCARiZo9DmL0CgZjZPRBmg0AgZnY9hOkWCMTMLoEwkwUCMbOTIM5AzX8DIM8bgVDM5Cs44L5AKGbyHhxwQSAUM3kODjgiEIqZtAlAeXYKhGImbQJQnjUCoZhJmwCUZ4FAKGbSJgDlmQhgVCAWEztarc0FnwWCMbE2+eeGlwLBmFib/HPDDYFgTKxN/rnhrEAwJtYm/9xwUCAYE2uTf27YKhCMibXJPzesEAjGxNrknxtmCwRjYm3yzw1dNTtbrqE8DdeMjwLhmEib+HPHE4FwTKRN/LnjikA4JtIm/txxUiAcE2kTf+7YJxCOibSJP3dsFAjHRNrEnzuWCoRjIoudB5qSKQLhmEib+HNJHY65H4Rj3goEZJu+hmN6BQKyTW3Szy0XBQKyTc/DMTn+DYmFPQzH1OH4gk1wzAwAPwQiso2voafDOVcFQvIftS8U3TO3+ixNZ/YDmIOasBbAd4GobOHSsw41Y2V1zgLFfeftAXwr2FGPu6uf+vSJHHX5s3ovdwHsAjC+05GCIAiCIAiCIECt+QWhxg3O/REwaQAAAABJRU5ErkJggg=="/>
+                            </defs>
+                            </svg>
+                                                                     
+                    </div>
+                </div>
+                <div id="item">
+                    <div id="img">
+                        <img src="{% static "img/test.png" %}">
+                        
+                    </div>
+                    <div id="description">
+                        <p class="name">Something</p>
+                        <p class="price">2.9 USD</p>
+                    </div>
+                    <div id="amount">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="8" r="8" fill="#CDE8E5"/>
+                            <path d="M7.10086 5.84721C7.46582 5.09743 8.53418 5.09743 8.89914 5.84721L9.96 8.02667L10.7791 9.62204C11.2015 10.4447 10.3767 11.3507 9.51811 11.0073L8.37135 10.5486C8.13293 10.4532 7.86697 10.4532 7.62856 10.5486L6.48191 11.0072C5.62327 11.3507 4.79853 10.4447 5.22091 9.62201L6.04 8.02667L7.10086 5.84721Z" fill="black"/>
+                        </svg>
+                        <p id="unit">3</p>
+                        <svg style="transform: rotate(180deg)" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="8" r="8" fill="#CDE8E5"/>
+                            <path d="M7.10086 5.84721C7.46582 5.09743 8.53418 5.09743 8.89914 5.84721L9.96 8.02667L10.7791 9.62204C11.2015 10.4447 10.3767 11.3507 9.51811 11.0073L8.37135 10.5486C8.13293 10.4532 7.86697 10.4532 7.62856 10.5486L6.48191 11.0072C5.62327 11.3507 4.79853 10.4447 5.22091 9.62201L6.04 8.02667L7.10086 5.84721Z" fill="black"/>
+                        </svg>                                            
+                    </div>
+                    <div id="delete">
+                        <svg width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect width="14" height="20" fill="url(#pattern0_132_43)"/>
+                            <defs>
+                            <pattern id="pattern0_132_43" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <use xlink:href="#image0_132_43" transform="matrix(0.014881 0 0 0.0104167 -0.214286 0)"/>
+                            </pattern>
+                            <image id="image0_132_43" width="96" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAADIklEQVR4nO2dOayMURiG31xBaU0QEQkay43OUhGJwtIIUVkrokN3LVEQKpSWDo0QW2K5GqKxlZZG0LmREHcpZC73vvIlv0ZMcsecc+b9ft+TPO1kznOS/5/M/80ZIAiCIAiCIAiCQItpAA4BeAbgKwCO0S8AngLoATC104vwynYA/S1Eb6a9xrZOL8YbRxOE/1N7zWAMHMsQ/7en6rIDiwHcATCQMRadaA1uA1hUKn43gCGBhVPMoapNdh4KLJai9uaOPw7AsMBCKepw1Sg2ADXdACMuQWi6AQ9QgLgJ46/xB0vdhFF95LoF4JvAdZcd1hrcBLCwVPwgCIIgCIIgCAJUz235n9mjtPU7BIKwsPbMWobVAkFY2FUQYr5AEBZ2HoSYAGBEIAoLOVKtWYo+gTAs5CcI8kIgDAv5HIJcFwjDQl6DIGcEwrCQpyHIAYEwLOR+CLJFIAwLuRmCLBcIw0IugyCzBMKwkDMhSBeAhkAcZrZRrVWSDwKBmNn3EOaxQCBm9hGEuSwQiJm9BGFOCARiZo9DmL0CgZjZPRBmg0AgZnY9hOkWCMTMLoEwkwUCMbOTIM5AzX8DIM8bgVDM5Cs44L5AKGbyHhxwQSAUM3kODjgiEIqZtAlAeXYKhGImbQJQnjUCoZhJmwCUZ4FAKGbSJgDlmQhgVCAWEztarc0FnwWCMbE2+eeGlwLBmFib/HPDDYFgTKxN/rnhrEAwJtYm/9xwUCAYE2uTf27YKhCMibXJPzesEAjGxNrknxtmCwRjYm3yzw1dNTtbrqE8DdeMjwLhmEib+HPHE4FwTKRN/LnjikA4JtIm/txxUiAcE2kTf+7YJxCOibSJP3dsFAjHRNrEnzuWCoRjIoudB5qSKQLhmEib+HNJHY65H4Rj3goEZJu+hmN6BQKyTW3Szy0XBQKyTc/DMTn+DYmFPQzH1OH4gk1wzAwAPwQiso2voafDOVcFQvIftS8U3TO3+ixNZ/YDmIOasBbAd4GobOHSsw41Y2V1zgLFfeftAXwr2FGPu6uf+vSJHHX5s3ovdwHsAjC+05GCIAiCIAiCIECt+QWhxg3O/REwaQAAAABJRU5ErkJggg=="/>
+                            </defs>
+                            </svg>
+                                                                     
+                    </div>
+                </div>
+                <div id="item">
+                    <div id="img">
+                        <img src="{% static "img/test.png" %}">
+                        
+                    </div>
+                    <div id="description">
+                        <p class="name">Something</p>
+                        <p class="price">2.9 USD</p>
+                    </div>
+                    <div id="amount">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="8" r="8" fill="#CDE8E5"/>
+                            <path d="M7.10086 5.84721C7.46582 5.09743 8.53418 5.09743 8.89914 5.84721L9.96 8.02667L10.7791 9.62204C11.2015 10.4447 10.3767 11.3507 9.51811 11.0073L8.37135 10.5486C8.13293 10.4532 7.86697 10.4532 7.62856 10.5486L6.48191 11.0072C5.62327 11.3507 4.79853 10.4447 5.22091 9.62201L6.04 8.02667L7.10086 5.84721Z" fill="black"/>
+                        </svg>
+                        <p id="unit">3</p>
+                        <svg style="transform: rotate(180deg)" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="8" r="8" fill="#CDE8E5"/>
+                            <path d="M7.10086 5.84721C7.46582 5.09743 8.53418 5.09743 8.89914 5.84721L9.96 8.02667L10.7791 9.62204C11.2015 10.4447 10.3767 11.3507 9.51811 11.0073L8.37135 10.5486C8.13293 10.4532 7.86697 10.4532 7.62856 10.5486L6.48191 11.0072C5.62327 11.3507 4.79853 10.4447 5.22091 9.62201L6.04 8.02667L7.10086 5.84721Z" fill="black"/>
+                        </svg>                                            
+                    </div>
+                    <div id="delete">
+                        <svg width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect width="14" height="20" fill="url(#pattern0_132_43)"/>
+                            <defs>
+                            <pattern id="pattern0_132_43" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <use xlink:href="#image0_132_43" transform="matrix(0.014881 0 0 0.0104167 -0.214286 0)"/>
+                            </pattern>
+                            <image id="image0_132_43" width="96" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAADIklEQVR4nO2dOayMURiG31xBaU0QEQkay43OUhGJwtIIUVkrokN3LVEQKpSWDo0QW2K5GqKxlZZG0LmREHcpZC73vvIlv0ZMcsecc+b9ft+TPO1kznOS/5/M/80ZIAiCIAiCIAiCQItpAA4BeAbgKwCO0S8AngLoATC104vwynYA/S1Eb6a9xrZOL8YbRxOE/1N7zWAMHMsQ/7en6rIDiwHcATCQMRadaA1uA1hUKn43gCGBhVPMoapNdh4KLJai9uaOPw7AsMBCKepw1Sg2ADXdACMuQWi6AQ9QgLgJ46/xB0vdhFF95LoF4JvAdZcd1hrcBLCwVPwgCIIgCIIgCAJUz235n9mjtPU7BIKwsPbMWobVAkFY2FUQYr5AEBZ2HoSYAGBEIAoLOVKtWYo+gTAs5CcI8kIgDAv5HIJcFwjDQl6DIGcEwrCQpyHIAYEwLOR+CLJFIAwLuRmCLBcIw0IugyCzBMKwkDMhSBeAhkAcZrZRrVWSDwKBmNn3EOaxQCBm9hGEuSwQiJm9BGFOCARiZo9DmL0CgZjZPRBmg0AgZnY9hOkWCMTMLoEwkwUCMbOTIM5AzX8DIM8bgVDM5Cs44L5AKGbyHhxwQSAUM3kODjgiEIqZtAlAeXYKhGImbQJQnjUCoZhJmwCUZ4FAKGbSJgDlmQhgVCAWEztarc0FnwWCMbE2+eeGlwLBmFib/HPDDYFgTKxN/rnhrEAwJtYm/9xwUCAYE2uTf27YKhCMibXJPzesEAjGxNrknxtmCwRjYm3yzw1dNTtbrqE8DdeMjwLhmEib+HPHE4FwTKRN/LnjikA4JtIm/txxUiAcE2kTf+7YJxCOibSJP3dsFAjHRNrEnzuWCoRjIoudB5qSKQLhmEib+HNJHY65H4Rj3goEZJu+hmN6BQKyTW3Szy0XBQKyTc/DMTn+DYmFPQzH1OH4gk1wzAwAPwQiso2voafDOVcFQvIftS8U3TO3+ixNZ/YDmIOasBbAd4GobOHSsw41Y2V1zgLFfeftAXwr2FGPu6uf+vSJHHX5s3ovdwHsAjC+05GCIAiCIAiCIECt+QWhxg3O/REwaQAAAABJRU5ErkJggg=="/>
+                            </defs>
+                            </svg>
+                                                                     
+                    </div>
+                </div>
+                <div id="item">
+                    <div id="img">
+                        <img src="{% static "img/test.png" %}">
+                        
+                    </div>
+                    <div id="description">
+                        <p class="name">Something</p>
+                        <p class="price">2.9 USD</p>
+                    </div>
+                    <div id="amount">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="8" r="8" fill="#CDE8E5"/>
+                            <path d="M7.10086 5.84721C7.46582 5.09743 8.53418 5.09743 8.89914 5.84721L9.96 8.02667L10.7791 9.62204C11.2015 10.4447 10.3767 11.3507 9.51811 11.0073L8.37135 10.5486C8.13293 10.4532 7.86697 10.4532 7.62856 10.5486L6.48191 11.0072C5.62327 11.3507 4.79853 10.4447 5.22091 9.62201L6.04 8.02667L7.10086 5.84721Z" fill="black"/>
+                        </svg>
+                        <p id="unit">3</p>
+                        <svg style="transform: rotate(180deg)" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="8" r="8" fill="#CDE8E5"/>
+                            <path d="M7.10086 5.84721C7.46582 5.09743 8.53418 5.09743 8.89914 5.84721L9.96 8.02667L10.7791 9.62204C11.2015 10.4447 10.3767 11.3507 9.51811 11.0073L8.37135 10.5486C8.13293 10.4532 7.86697 10.4532 7.62856 10.5486L6.48191 11.0072C5.62327 11.3507 4.79853 10.4447 5.22091 9.62201L6.04 8.02667L7.10086 5.84721Z" fill="black"/>
+                        </svg>                                            
+                    </div>
+                    <div id="delete">
+                        <svg width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect width="14" height="20" fill="url(#pattern0_132_43)"/>
+                            <defs>
+                            <pattern id="pattern0_132_43" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <use xlink:href="#image0_132_43" transform="matrix(0.014881 0 0 0.0104167 -0.214286 0)"/>
+                            </pattern>
+                            <image id="image0_132_43" width="96" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAADIklEQVR4nO2dOayMURiG31xBaU0QEQkay43OUhGJwtIIUVkrokN3LVEQKpSWDo0QW2K5GqKxlZZG0LmREHcpZC73vvIlv0ZMcsecc+b9ft+TPO1kznOS/5/M/80ZIAiCIAiCIAiCQItpAA4BeAbgKwCO0S8AngLoATC104vwynYA/S1Eb6a9xrZOL8YbRxOE/1N7zWAMHMsQ/7en6rIDiwHcATCQMRadaA1uA1hUKn43gCGBhVPMoapNdh4KLJai9uaOPw7AsMBCKepw1Sg2ADXdACMuQWi6AQ9QgLgJ46/xB0vdhFF95LoF4JvAdZcd1hrcBLCwVPwgCIIgCIIgCAJUz235n9mjtPU7BIKwsPbMWobVAkFY2FUQYr5AEBZ2HoSYAGBEIAoLOVKtWYo+gTAs5CcI8kIgDAv5HIJcFwjDQl6DIGcEwrCQpyHIAYEwLOR+CLJFIAwLuRmCLBcIw0IugyCzBMKwkDMhSBeAhkAcZrZRrVWSDwKBmNn3EOaxQCBm9hGEuSwQiJm9BGFOCARiZo9DmL0CgZjZPRBmg0AgZnY9hOkWCMTMLoEwkwUCMbOTIM5AzX8DIM8bgVDM5Cs44L5AKGbyHhxwQSAUM3kODjgiEIqZtAlAeXYKhGImbQJQnjUCoZhJmwCUZ4FAKGbSJgDlmQhgVCAWEztarc0FnwWCMbE2+eeGlwLBmFib/HPDDYFgTKxN/rnhrEAwJtYm/9xwUCAYE2uTf27YKhCMibXJPzesEAjGxNrknxtmCwRjYm3yzw1dNTtbrqE8DdeMjwLhmEib+HPHE4FwTKRN/LnjikA4JtIm/txxUiAcE2kTf+7YJxCOibSJP3dsFAjHRNrEnzuWCoRjIoudB5qSKQLhmEib+HNJHY65H4Rj3goEZJu+hmN6BQKyTW3Szy0XBQKyTc/DMTn+DYmFPQzH1OH4gk1wzAwAPwQiso2voafDOVcFQvIftS8U3TO3+ixNZ/YDmIOasBbAd4GobOHSsw41Y2V1zgLFfeftAXwr2FGPu6uf+vSJHHX5s3ovdwHsAjC+05GCIAiCIAiCIECt+QWhxg3O/REwaQAAAABJRU5ErkJggg=="/>
+                            </defs>
+                            </svg>
+                                                                     
+                    </div>
+                </div>
+                <div id="item">
+                    <div id="img">
+                        <img src="{% static "img/test.png" %}">
+                        
+                    </div>
+                    <div id="description">
+                        <p class="name">Something</p>
+                        <p class="price">2.9 USD</p>
+                    </div>
+                    <div id="amount">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="8" r="8" fill="#CDE8E5"/>
+                            <path d="M7.10086 5.84721C7.46582 5.09743 8.53418 5.09743 8.89914 5.84721L9.96 8.02667L10.7791 9.62204C11.2015 10.4447 10.3767 11.3507 9.51811 11.0073L8.37135 10.5486C8.13293 10.4532 7.86697 10.4532 7.62856 10.5486L6.48191 11.0072C5.62327 11.3507 4.79853 10.4447 5.22091 9.62201L6.04 8.02667L7.10086 5.84721Z" fill="black"/>
+                        </svg>
+                        <p id="unit">3</p>
+                        <svg style="transform: rotate(180deg)" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="8" r="8" fill="#CDE8E5"/>
+                            <path d="M7.10086 5.84721C7.46582 5.09743 8.53418 5.09743 8.89914 5.84721L9.96 8.02667L10.7791 9.62204C11.2015 10.4447 10.3767 11.3507 9.51811 11.0073L8.37135 10.5486C8.13293 10.4532 7.86697 10.4532 7.62856 10.5486L6.48191 11.0072C5.62327 11.3507 4.79853 10.4447 5.22091 9.62201L6.04 8.02667L7.10086 5.84721Z" fill="black"/>
+                        </svg>                                            
+                    </div>
+                    <div id="delete">
+                        <svg width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect width="14" height="20" fill="url(#pattern0_132_43)"/>
+                            <defs>
+                            <pattern id="pattern0_132_43" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <use xlink:href="#image0_132_43" transform="matrix(0.014881 0 0 0.0104167 -0.214286 0)"/>
+                            </pattern>
+                            <image id="image0_132_43" width="96" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAADIklEQVR4nO2dOayMURiG31xBaU0QEQkay43OUhGJwtIIUVkrokN3LVEQKpSWDo0QW2K5GqKxlZZG0LmREHcpZC73vvIlv0ZMcsecc+b9ft+TPO1kznOS/5/M/80ZIAiCIAiCIAiCQItpAA4BeAbgKwCO0S8AngLoATC104vwynYA/S1Eb6a9xrZOL8YbRxOE/1N7zWAMHMsQ/7en6rIDiwHcATCQMRadaA1uA1hUKn43gCGBhVPMoapNdh4KLJai9uaOPw7AsMBCKepw1Sg2ADXdACMuQWi6AQ9QgLgJ46/xB0vdhFF95LoF4JvAdZcd1hrcBLCwVPwgCIIgCIIgCAJUz235n9mjtPU7BIKwsPbMWobVAkFY2FUQYr5AEBZ2HoSYAGBEIAoLOVKtWYo+gTAs5CcI8kIgDAv5HIJcFwjDQl6DIGcEwrCQpyHIAYEwLOR+CLJFIAwLuRmCLBcIw0IugyCzBMKwkDMhSBeAhkAcZrZRrVWSDwKBmNn3EOaxQCBm9hGEuSwQiJm9BGFOCARiZo9DmL0CgZjZPRBmg0AgZnY9hOkWCMTMLoEwkwUCMbOTIM5AzX8DIM8bgVDM5Cs44L5AKGbyHhxwQSAUM3kODjgiEIqZtAlAeXYKhGImbQJQnjUCoZhJmwCUZ4FAKGbSJgDlmQhgVCAWEztarc0FnwWCMbE2+eeGlwLBmFib/HPDDYFgTKxN/rnhrEAwJtYm/9xwUCAYE2uTf27YKhCMibXJPzesEAjGxNrknxtmCwRjYm3yzw1dNTtbrqE8DdeMjwLhmEib+HPHE4FwTKRN/LnjikA4JtIm/txxUiAcE2kTf+7YJxCOibSJP3dsFAjHRNrEnzuWCoRjIoudB5qSKQLhmEib+HNJHY65H4Rj3goEZJu+hmN6BQKyTW3Szy0XBQKyTc/DMTn+DYmFPQzH1OH4gk1wzAwAPwQiso2voafDOVcFQvIftS8U3TO3+ixNZ/YDmIOasBbAd4GobOHSsw41Y2V1zgLFfeftAXwr2FGPu6uf+vSJHHX5s3ovdwHsAjC+05GCIAiCIAiCIECt+QWhxg3O/REwaQAAAABJRU5ErkJggg=="/>
+                            </defs>
+                            </svg>
+                                                                     
+                    </div>
+                </div>
+                <div id="item">
+                    <div id="img">
+                        <img src="{% static "img/test.png" %}">
+                        
+                    </div>
+                    <div id="description">
+                        <p class="name">Something</p>
+                        <p class="price">2.9 USD</p>
+                    </div>
+                    <div id="amount">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="8" r="8" fill="#CDE8E5"/>
+                            <path d="M7.10086 5.84721C7.46582 5.09743 8.53418 5.09743 8.89914 5.84721L9.96 8.02667L10.7791 9.62204C11.2015 10.4447 10.3767 11.3507 9.51811 11.0073L8.37135 10.5486C8.13293 10.4532 7.86697 10.4532 7.62856 10.5486L6.48191 11.0072C5.62327 11.3507 4.79853 10.4447 5.22091 9.62201L6.04 8.02667L7.10086 5.84721Z" fill="black"/>
+                        </svg>
+                        <p id="unit">3</p>
+                        <svg style="transform: rotate(180deg)" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="8" cy="8" r="8" fill="#CDE8E5"/>
+                            <path d="M7.10086 5.84721C7.46582 5.09743 8.53418 5.09743 8.89914 5.84721L9.96 8.02667L10.7791 9.62204C11.2015 10.4447 10.3767 11.3507 9.51811 11.0073L8.37135 10.5486C8.13293 10.4532 7.86697 10.4532 7.62856 10.5486L6.48191 11.0072C5.62327 11.3507 4.79853 10.4447 5.22091 9.62201L6.04 8.02667L7.10086 5.84721Z" fill="black"/>
+                        </svg>                                            
+                    </div>
+                    <div id="delete">
+                        <svg width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <rect width="14" height="20" fill="url(#pattern0_132_43)"/>
+                            <defs>
+                            <pattern id="pattern0_132_43" patternContentUnits="objectBoundingBox" width="1" height="1">
+                            <use xlink:href="#image0_132_43" transform="matrix(0.014881 0 0 0.0104167 -0.214286 0)"/>
+                            </pattern>
+                            <image id="image0_132_43" width="96" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAADIklEQVR4nO2dOayMURiG31xBaU0QEQkay43OUhGJwtIIUVkrokN3LVEQKpSWDo0QW2K5GqKxlZZG0LmREHcpZC73vvIlv0ZMcsecc+b9ft+TPO1kznOS/5/M/80ZIAiCIAiCIAiCQItpAA4BeAbgKwCO0S8AngLoATC104vwynYA/S1Eb6a9xrZOL8YbRxOE/1N7zWAMHMsQ/7en6rIDiwHcATCQMRadaA1uA1hUKn43gCGBhVPMoapNdh4KLJai9uaOPw7AsMBCKepw1Sg2ADXdACMuQWi6AQ9QgLgJ46/xB0vdhFF95LoF4JvAdZcd1hrcBLCwVPwgCIIgCIIgCAJUz235n9mjtPU7BIKwsPbMWobVAkFY2FUQYr5AEBZ2HoSYAGBEIAoLOVKtWYo+gTAs5CcI8kIgDAv5HIJcFwjDQl6DIGcEwrCQpyHIAYEwLOR+CLJFIAwLuRmCLBcIw0IugyCzBMKwkDMhSBeAhkAcZrZRrVWSDwKBmNn3EOaxQCBm9hGEuSwQiJm9BGFOCARiZo9DmL0CgZjZPRBmg0AgZnY9hOkWCMTMLoEwkwUCMbOTIM5AzX8DIM8bgVDM5Cs44L5AKGbyHhxwQSAUM3kODjgiEIqZtAlAeXYKhGImbQJQnjUCoZhJmwCUZ4FAKGbSJgDlmQhgVCAWEztarc0FnwWCMbE2+eeGlwLBmFib/HPDDYFgTKxN/rnhrEAwJtYm/9xwUCAYE2uTf27YKhCMibXJPzesEAjGxNrknxtmCwRjYm3yzw1dNTtbrqE8DdeMjwLhmEib+HPHE4FwTKRN/LnjikA4JtIm/txxUiAcE2kTf+7YJxCOibSJP3dsFAjHRNrEnzuWCoRjIoudB5qSKQLhmEib+HNJHY65H4Rj3goEZJu+hmN6BQKyTW3Szy0XBQKyTc/DMTn+DYmFPQzH1OH4gk1wzAwAPwQiso2voafDOVcFQvIftS8U3TO3+ixNZ/YDmIOasBbAd4GobOHSsw41Y2V1zgLFfeftAXwr2FGPu6uf+vSJHHX5s3ovdwHsAjC+05GCIAiCIAiCIECt+QWhxg3O/REwaQAAAABJRU5ErkJggg=="/>
+                            </defs>
+                            </svg>
+                                                                     
+                    </div>
+                </div>
+            </div>
+            <div id="cart_footer">
+                <p class="total">Your Total: 1650 USD (Without taxes)</p>
+                <button>
+                    <p>Checkout</p>
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <rect width="14" height="14" fill="url(#pattern0_44_32)"/>
+                        <defs>
+                        <pattern id="pattern0_44_32" patternContentUnits="objectBoundingBox" width="1" height="1">
+                        <use xlink:href="#image0_44_32" transform="scale(0.0104167)"/>
+                        </pattern>
+                        <image id="image0_44_32" width="96" height="96" xlink:href="data:image/png;base64,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"/>
+                        </defs>
+                        </svg>                        
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="pc_blur"></div>
     <div id="global_content">
-        <div id="pc_cart" class="pc_only"></div>
-        <div id="pc_blur"></div>
+        
         <div id="banner">
             
             <div id="shades">
@@ -170,6 +478,7 @@
                                                                                  
                                 </div>
                             </div>
+                            
                         </div>
                         <div id="cart_footer">
                             <p class="total">Your Total: 1650 USD (Without taxes)</p>
