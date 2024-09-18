@@ -59,7 +59,7 @@
 <body class="">
     <div id="pc_cart" class="pc_only">
         <div id="cart_banner">
-            <button>
+            <button onclick="closeall()">
                 <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1.3623 1L15.3623 15" stroke="black" stroke-width="2" stroke-linecap="round"/>
                     <path d="M15 1L0.999999 15" stroke="black" stroke-width="2" stroke-linecap="round"/>
@@ -365,7 +365,7 @@
             </div>
         </div>
     </div>
-    <div id="pc_blur"></div>
+    <div id="pc_blur" onclick="closeall()"></div>
     <div id="global_content">
         
         <div id="banner">
@@ -489,7 +489,7 @@
                     </div>
                 </div>
             </div>
-            <div id="cart_button" class="pc_only">
+            <div id="cart_button" onclick="cart()" class="pc_only">
                 <p id="cart_count">0</p>
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <rect width="22" height="22" fill="url(#pattern0_48_85)"/>
@@ -506,7 +506,7 @@
     
         <div id="take_dudes_glasses"></div>
 
-        <div id="page_content" onclick=" onclick="closeall()"">
+        <div id="page_content" onclick="closeall()">
         {% block content %}
 
         {% endblock content %}
