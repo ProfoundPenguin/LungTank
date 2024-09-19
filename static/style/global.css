@@ -36,11 +36,18 @@ button {
 }
 
 #global_content {
-    width: calc(100% - 42px);
+    /* width: calc(100% - 42px); */
+    width: 100%;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
     top: 0px;
+}
+.section {
+    width: calc(100% - 42px) !important;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 #take_dudes_glasses {
     width: 100vw;

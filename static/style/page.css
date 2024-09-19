@@ -63,23 +63,51 @@
     position: sticky;
     top: 0px;
 }
+#products #progressBar {
+    position: absolute;
+    bottom: 50px;
+    height: 5px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #89A19F;
+}
+#products #progressBar #progress {
+    width: 25%;
+    height: 5px;
+    border-radius: 5px;
+    background-color: var(--black);
+}
 #products #sticky #content {
     width: 100%;
-    height: 100%;
+    height: calc(100% - 100px);
+    padding-bottom: 100px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    /* justify-content: space-around; */
+    justify-content: end;
 }
+#products #sticky #content h1 {
+    padding-bottom: 5vh;
+}
+
 #products #trail {
     display: flex;
-    width: 100vw;
+    /* width: 100vw; */
+    width: 100%;
     gap: 12px;
-    margin-left: -20px;
+    /* margin-left: -20px; */
     overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;  
+}
+#products #trail::-webkit-scrollbar { 
+    display: none;
 }
 #products #trail #product {
-    aspect-ratio: 50/60;
+    aspect-ratio: 50/65;
     height: 50vh;
+    display: flex;
+    flex-direction: column;
     background-color: #89A19F;
     border-radius: 34px;
 }
@@ -88,6 +116,49 @@
 }
 #products #trail #product:last-child {
     margin-right: 20px;
+}
+#products #image {
+    width: 100%;
+    flex-grow: 1;
+}
+#products #text {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    width: calc(100% - 44px);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-bottom: 18px;
+}
+#products #text p {
+    margin: 0px;
+    color: var(--black);
+    text-wrap: nowrap;
+    width: max-content;
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding: 0px;
+}
+#products #text p#price {
+    border-bottom: 1px solid var(--black);
+}
+#products #text #des {
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#products #text button {
+    height: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: var(--black);
+    color: var(--white);
+    border-radius: 50px;
+    border: 0px;
+    font-size: 1.4rem;
 }
 
 @media (min-width: 430px) {
