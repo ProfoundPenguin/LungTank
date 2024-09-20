@@ -203,9 +203,15 @@
     background-color: var(--black);
     left: 0px;
     overflow-y: auto;
+    max-width: 400px;
     transform: none;
     margin-top: 40px;
     border-radius: 23px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;  
+}
+#ratings #section_reviews::-webkit-scrollbar { 
+    display: none;
 }
 #ratings #section_reviews #review {
     width: calc(100% - 24px - 24px);
@@ -240,6 +246,7 @@
     #landing svg {
         width: 40%;
     }
+    
 }
 
 @media (min-width: 900px) {
@@ -257,6 +264,10 @@
     }
     #products #text p {
         font-weight: 400;
+    }
+    #ratings {
+        flex-direction: row;
+        gap: 25px;
     }
 }
 
@@ -280,6 +291,41 @@
     #products #text button {
         padding-left: 30px;
         padding-right: 30px;
+    }
+    #ratings #section_text #text h1 {
+        font-size: 8rem;
+        font-weight: 400;
+    }
+    #ratings #section_text svg {
+        height: 60px;
+    }
+    #ratings #section_text #stars {
+        margin: 18px 0px;
+    }
+    #ratings #section_reviews {
+        max-width: 630px;
+    }
+    #ratings #section_reviews #review #title {
+        padding-bottom: 25px;
+    }
+    #ratings #section_reviews #review {
+        width: calc(100% - 40px - 40px);
+        padding: 20px;
+        border-radius: 25px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    #ratings #section_reviews #review:first-child {
+        margin-top: 20px;
+    }
+    #ratings #section_reviews #review:last-child {
+        margin-bottom: 20px;
+    }
+    #ratings #section_reviews {
+        border-radius: 40px;
+    }
+    #ratings #section_reviews {
+        height: 500px;
     }
 }
 @media (min-width: 1800px) {
