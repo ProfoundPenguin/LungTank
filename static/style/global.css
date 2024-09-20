@@ -846,3 +846,9 @@ body.cart #banner #mobile_menu ul {
     }
     
 }
+
+@media (min-width: 1800px) {
+    .section {
+        width: calc(100% - 100px) !important;
+    }
+}

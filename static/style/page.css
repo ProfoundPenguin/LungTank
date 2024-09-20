@@ -106,6 +106,7 @@
 #products #trail #product {
     aspect-ratio: 50/65;
     height: 50vh;
+    max-height: 700px;
     display: flex;
     flex-direction: column;
     background-color: #89A19F;
@@ -177,6 +178,17 @@
         width: auto;
         height: 30%;
     }
+    #products h1 {
+        font-size: 4rem;
+        font-weight: 400;
+    }
+    #products #trail #product {
+        aspect-ratio: 2.7/2;
+        height: 50vh;
+    }
+    #products #text p {
+        font-weight: 400;
+    }
 }
 
 @media (min-width: 1300px) {
@@ -185,5 +197,34 @@
     }
     #landing svg {
         height: 40%;
+    }
+    #products h1 {
+        font-size: 5rem;
+    }
+    #products #trail #product {
+        border-radius: 55px;
+    }
+    #products #text { 
+        width: calc(100% - 66px);
+        padding-bottom: 33px;
+    }
+    #products #text button {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+@media (min-width: 1800px) {
+    #products #trail #product:first-child {
+        margin-left: 50px;
+    }
+    #products #trail #product:last-child {
+        margin-right: 50px;
+    }
+    #products h1 {
+        font-size: 6.4rem;
+    }
+    #products #text button {
+        padding-left:40px;
+        padding-right: 40px;
     }
 }
