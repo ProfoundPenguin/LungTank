@@ -33,3 +33,20 @@ banner_bar.addEventListener('mouseleave', ()=> {
     })
 })
 
+
+const listItems = document.querySelectorAll('#faq li');
+
+listItems.forEach(item => {
+    item.addEventListener('click', function() {
+        // If the clicked item is already active, remove the 'active' class
+        if (this.classList.contains('active')) {
+            this.classList.remove('active');
+        } else {
+            // Remove 'active' class from all list items
+            listItems.forEach(li => li.classList.remove('active'));
+
+            // Add 'active' class to the clicked item
+            this.classList.add('active');
+        }
+    });
+});

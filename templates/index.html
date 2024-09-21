@@ -74,6 +74,24 @@
                         </button>
                     </div>
                 </div>
+                <div id="more_product">
+                    <p>More Product</p>
+                    <div id="button_content">
+                        <div id="top_ball"></div>
+                        <div id="button"></div>
+                        <div id="bottom_ball"></div>
+                    </div>
+                    <svg>
+                        <filter id="gooey">
+                        <feGaussianBlur in- "SourceGraphic" stdDeviation="10"/>
+                        <feColorMatrix values="
+                        1 0 0 0 0
+                        0 1 0 0 0
+                        0 0 1 0 0
+                        0 0 0 30 -10" />
+                        </filter>
+                    </svg>
+                </div>
             </div>
             <div class="section" id="progressBar"><div id="progress"></div></div>
         </div>
@@ -188,7 +206,91 @@
         </div>
     </div>
 </div>
-
+<div id="faq" class="section">
+    <p id="title">Frequently Asked Questions </p>
+    <ul>
+        <li>
+            <div id="q">
+                <div id="title">
+                    <p>How safe is the Lung T-500?</p>
+                    <div id="shape">
+                        <div id="line"></div>
+                        <div id="line"></div>
+                    </div>
+                </div>
+                <div id="answer">
+                    <p>
+                        {% lorem 1 p random %}
+                    </p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div id="q">
+                <div id="title">
+                    <p>How safe is the Lung T-500?</p>
+                    <div id="shape">
+                        <div id="line"></div>
+                        <div id="line"></div>
+                    </div>
+                </div>
+                <div id="answer">
+                    <p>
+                        {% lorem 1 p random %}
+                    </p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div id="q">
+                <div id="title">
+                    <p>How safe is the Lung T-500?</p>
+                    <div id="shape">
+                        <div id="line"></div>
+                        <div id="line"></div>
+                    </div>
+                </div>
+                <div id="answer">
+                    <p>
+                        {% lorem 1 p random %}
+                    </p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div id="q">
+                <div id="title">
+                    <p>How safe is the Lung T-500?</p>
+                    <div id="shape">
+                        <div id="line"></div>
+                        <div id="line"></div>
+                    </div>
+                </div>
+                <div id="answer">
+                    <p>
+                        {% lorem 1 p random %}
+                    </p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div id="q">
+                <div id="title">
+                    <p>How safe is the Lung T-500?</p>
+                    <div id="shape">
+                        <div id="line"></div>
+                        <div id="line"></div>
+                    </div>
+                </div>
+                <div id="answer">
+                    <p>
+                        {% lorem 1 p random %}
+                    </p>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
 <script>
     function sizeReviews() {
         const container = document.querySelector('#section_reviews');
@@ -207,7 +309,10 @@
         }
         container.style.height = (totalHeight + toAdd) + 'px';
     }
-    sizeReviews()
+    document.addEventListener('DOMContentLoaded', function() {
+        sizeReviews()
+    }
+
 
     window.addEventListener('resize', sizeReviews)
     
