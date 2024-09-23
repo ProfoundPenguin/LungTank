@@ -293,6 +293,8 @@
 </div>
 <script>
     function sizeReviews() {
+        console.log("Hola");
+        
         const container = document.querySelector('#section_reviews');
         const children = container.children;
         
@@ -311,7 +313,7 @@
     }
     document.addEventListener('DOMContentLoaded', function() {
         sizeReviews()
-    }
+    })
 
 
     window.addEventListener('resize', sizeReviews)
