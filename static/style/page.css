@@ -220,6 +220,7 @@
     padding-right: 20px;
     background-color: var(--black);
     color: var(--white);
+    text-wrap: nowrap;
     border-radius: 50px;
     border: 0px;
     font-size: 1.4rem;
@@ -383,6 +384,74 @@
 #faq ul li.active #q #answer {
     max-height: 100vh;
 }
+
+
+
+
+#others_page_content {
+    padding-top: 100px;
+}
+#others_page_content h1 {
+    font-size: 4.5rem;
+    font-weight: 400;
+    margin-bottom: 50px;
+    max-width: 850px;
+    margin: 0px;
+    margin-bottom: 50px;
+    padding: 0px;
+}
+#others_page_content p {
+    font-size: 2rem;
+    max-width: 850px;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 20px;
+}
+#others_page_content button {
+    padding: 0px 32px;
+    height: 52px;
+    background-color: var(--black);
+    border: 0px;
+    border-radius: 50px;
+    font-size: 2rem;
+    color: var(--white);
+    margin-top: 30px;
+}
+#page_404 {
+    max-width: 500px;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 55px;
+}
+#page_404 h1 {
+    font-size: 9rem;
+    font-weight: 500;
+    margin: 0px;
+    padding: 0px;
+}
+#page_404 p {
+    font-size: 2.4rem;
+    margin: 0px;
+    color: var(--black);
+    text-align: center;
+    padding: 0px;
+}
+#page_404 p a {
+    color: var(--black);
+}
+#page_404 button {
+    padding: 0px 32px;
+    height: 52px;
+    background-color: var(--black);
+    border: 0px;
+    border-radius: 50px;
+    font-size: 2rem;
+    color: var(--white);
+}
 @media (min-width: 430px) {
     #landing svg {
         width: 60%;
@@ -396,6 +465,12 @@
 }
 
 @media (min-width: 900px) {
+    #others_page_content #content  {
+        width: calc(100% - 70px);
+        padding-left: 35px;
+    }
+
+
     #landing svg {
         width: auto;
         height: 30%;

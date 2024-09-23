@@ -13,5 +13,8 @@ def products(request):
 def legal(request):
     return render(request, 'legal.html')
 
+def refund_policy(request):
+    return render(request, 'refund_policy.html')
+
 def page404(request, exception=None):
     return render(request, '404.html', {}, status=404)
