@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
@@ -36,6 +37,36 @@
     <div id="dot_1"></div>
     <div id="dot_2"></div>
         
+</div>
+
+<div id="video" class="section">
+    <video muted loop autoplay src="{% static 'video/landing.mp4' %}"></video>
+</div>
+<div id="info" class="section">
+    <div id="part">
+        <div id="flex">
+            <div id="img">
+                <img src="{% static 'img/product/mask.webp' %}" alt="">
+            </div>
+            <div id="caption">
+                <p>The lung tank is an innovative underwater breathing device that allows users to explore oceans and lakes with ease. Its ergonomic mask fits comfortably and uses advanced technology to extract oxygen from the water, enabling divers to breathe freely for up to ten minutes.</p>
+            </div>
+        </div>
+        <h1>BREATH FOR UPTO 10 MINUTES</h1>
+    </div>
+    <div id="part">
+        <div id="flex">
+            <div id="img">
+                <img src="{% static 'img/product/mask.webp' %}" alt="">
+            </div>
+            <div id="caption">
+                <p>We sell both manual pump and auto compressor, helping you refill the tank yourself
+                    and continue your diving.</p>
+                <a href=""><button>Learn More</button></a>
+            </div>
+        </div>
+        <h1>REFILL YOURSELF</h1>
+    </div>
 </div>
 <div id="products">
     <div id="sticky">

@@ -637,12 +637,17 @@ body.cart #banner #mobile_menu ul {
         border-bottom: 1px solid var(--white);
     }
     #pc_cart #content {
-        width: calc(100% - 60px);
+        width: calc(500px - 60px);
+        opacity: 0;
+        transition: 0.1s;
         height: calc(100% - 117px);
         display: flex;
         gap: 10px;
         flex-direction: column;
         padding: 30px 30px 0px 30px;
+    }
+    body.menu #pc_cart #content {
+        opacity: 1;
     }
     #pc_cart #content #cart_content {
         flex-grow: 1;
