@@ -11,7 +11,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 45vh;
+    height: calc(45svh + 100px);
     max-height: 600px;
 }
 #landing svg {
@@ -46,7 +46,7 @@
 
 #video video {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 25px;
 }
 
 #info {
@@ -56,6 +56,7 @@
     display: flex;
     padding-bottom: 80px;
     padding-top: 80px;
+    gap: 20px;
     border-bottom: 1px solid var(--black);
     flex-direction: column-reverse;
 }
@@ -79,6 +80,8 @@
     background-color: var(--black);
     padding: 0px 27px;
     height: 38px;
+    margin-top: 20px;
+    border: 0px;
     border-radius: 38px;
     color: var(--white);
     font-size: 1.6rem;
@@ -506,7 +509,35 @@
     #landing svg {
         width: 40%;
     }
-    
+    #info #part {
+        flex-direction: column;
+        border: 0px;
+    }
+    #info #part h1 {
+        font-size: 4rem;
+        font-weight: 400;
+        padding-top: 20px;
+        border-bottom: 2px solid var(--black);
+        width: max-content;
+    }
+    #info #part #flex {
+        flex-direction: row;
+        width: 100%;
+    }
+    #info #part #flex #img {
+        width: 30%;
+        margin-left: 0px;
+        padding-left: 60px;
+        max-width: 200px;
+        padding-right: 70px;
+        border-right: 1px solid var(--black);
+    }
+    #info #part #flex #caption {
+        width: 70%;
+        max-width: 550px;
+        padding-left: 20px;
+        padding-top: 20px;
+    }
 }
 
 @media (min-width: 900px) {
@@ -552,6 +583,12 @@
 }
 
 @media (min-width: 1300px) {
+    #info #part h1 {
+        font-size: 5rem;
+    }
+    #info #part p {
+        font-size: 1.8rem;
+    }
     #landing {
         height: 55vh;
     }
