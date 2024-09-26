@@ -73,15 +73,22 @@
         <div id="content">
             <h1 class="section">WE HAVE VARIATY OF PACKAGES</h1>
             <div id="trail">
+                {% for product in products %}
                 <div id="product">
-                    <div id="image"></div>
+                    <div id="image">
+                        {% if product.images.all %}
+                            <img src="{{ product.images.all.0.image_400.url }}" alt="{{ product.name }} Image">
+                        {% else %}
+                            <p>Could not get the image</p>
+                        {% endif %}
+                    </div>
                     <div id="text">
                         <div id="des">
                             <p id="name">
-                                Lung T-500 + Hand Pump
+                                {{ product.name }}
                             </p>
                             <p id="price">
-                                125.00 USD
+                                {{ product.price }} USD
                             </p>
                         </div>
                         <button>
@@ -89,22 +96,9 @@
                         </button>
                     </div>
                 </div>
-                <div id="product">
-                    <div id="image"></div>
-                    <div id="text">
-                        <div id="des">
-                            <p id="name">
-                                Lung T-500 +asdasdasdsdds Hand Pump
-                            </p>
-                            <p id="price">
-                                125.00 USD
-                            </p>
-                        </div>
-                        <button>
-                            Add To Cart
-                        </button>
-                    </div>
-                </div>
+                {% empty %}
+                    <p>Could not get any products at the moment</p>
+                {% endfor %}
                 <div id="more_product">
                     <p>More Product</p>
                     <div id="button_content">

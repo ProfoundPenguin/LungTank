@@ -1,14 +1,24 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from product.models import Product  # Import the Product model
 
 def index(request):
-    return render(request, 'index.html')
+    products = Product.objects.prefetch_related('images').all()  
+    data = {
+        'products': products
+    }
+
+    return render(request, 'index.html', data) 
 
 def product_detail(request, slug):
     return render(request, 'product_detail.html')
 
 def products(request):
-    return render(request, 'products.html')
+    products = Product.objects.prefetch_related('images').all()  
+    data = {
+        'products': products
+    }
+    return render(request, 'products.html', data)
 
 def legal(request):
     return render(request, 'legal.html')

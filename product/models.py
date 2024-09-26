@@ -1,7 +1,12 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _  # Import this
 from django.core.validators import RegexValidator
-from django.core.exceptions import ValidationError
+from django.core.files.base import ContentFile
+from django.utils.translation import gettext_lazy as _
+from PIL import Image as PilImage
+import io
+from django.dispatch import receiver
+from django.db.models.signals import post_save
 
 class Product(models.Model):
     name = models.TextField(max_length=120, null=False, blank=False)
@@ -39,7 +44,10 @@ class Product(models.Model):
 
 class Product_Image(models.Model):
     product = models.ForeignKey(Product, related_name="images", on_delete=models.CASCADE)
-    image = models.ImageField(upload_to="product_images")
+    original_image = models.ImageField(upload_to="product_images/original/")
+    image_400 = models.ImageField(upload_to="product_images/400/", null=True, blank=True)
+    image_700 = models.ImageField(upload_to="product_images/700/", null=True, blank=True)
+    image_2000 = models.ImageField(upload_to="product_images/2000/", null=True, blank=True)
 
     class Meta:
         verbose_name = _("Product Image")
@@ -47,6 +55,47 @@ class Product_Image(models.Model):
 
     def __str__(self):
         return f"Image for {self.product.name}"
+
+    def save(self, *args, **kwargs):
+        # Create WebP images on save
+        if self.original_image:
+            self.convert_to_webp()
+        super().save(*args, **kwargs)
+
+    def convert_to_webp(self):
+        # Open the original image
+        img = PilImage.open(self.original_image)
+        
+        # Create a bytes buffer for the WebP images
+        webp_buffer_400 = io.BytesIO()
+        webp_buffer_700 = io.BytesIO()
+        webp_buffer_2000 = io.BytesIO()
+
+        # Generate and save different sizes
+        for size, buffer in [(400, webp_buffer_400), (700, webp_buffer_700), (2000, webp_buffer_2000)]:
+            img_copy = img.copy()
+            if size < img_copy.width:
+                img_copy.thumbnail((size, size))
+
+            # Save the image in WebP format to the buffer
+            img_copy.save(buffer, format='WEBP')
+            buffer.seek(0)
+
+            # Save to the corresponding field
+            file_name = f"{self.product.id}_{size}.webp"
+            content_file = ContentFile(buffer.read(), name=file_name)
+
+            if size == 400:
+                self.image_400.save(file_name, content_file, save=False)
+            elif size == 700:
+                self.image_700.save(file_name, content_file, save=False)
+            elif size == 2000:
+                self.image_2000.save(file_name, content_file, save=False)
+
+@receiver(post_save, sender=Product_Image)
+def create_webp_images(sender, instance, created, **kwargs):
+    if created:
+        instance.convert_to_webp()
 
 
 class Sale(models.Model):

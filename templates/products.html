@@ -2,6 +2,59 @@
 
 {% block content %}
 
-<h1>Index Baby</h1>
+<div id="products_page" class="section">
+    <h1>Our Products</h1>
+    <div id="control">
+        <div id="search">
+            <input type="text" placeholder="Search Product">
+        </div>
+        <div id="flex">
+            <p id="list_items">
+                Listed {{products|length }} Products
+            </p>
+            <div id="buttons">
+                <div id="sort" class="button">Sort By
+                    <svg width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L6.5 7L12 1" stroke="#CDE8E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>    
+                </div>
+                <div id="sort" class="button">Filter By
+                    <svg width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L6.5 7L12 1" stroke="#CDE8E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                                
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="products">
+        {% for product in products %}
+        <div id="product">
+            <div id="image">
+                {% if product.images.all %}
+                    <img src="{{ product.images.all.0.image_400.url }}" alt="{{ product.name }} Image">
+                {% else %}
+                    <p>Could not get the image</p>
+                {% endif %}
+            </div>
+            <div id="text">
+                <div id="des">
+                    <p id="name">
+                        {{ product.name }}
+                    </p>
+                    <p id="price">
+                        {{ product.price }} USD
+                    </p>
+                </div>
+                <button>
+                    Add To Cart
+                </button>
+            </div>
+        </div>
+        
+        {% empty %}
+            <p>Could not get any products at the moment</p>
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock content %}

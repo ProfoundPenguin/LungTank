@@ -17,6 +17,9 @@
 #landing svg {
     width: 70%;
 }
+#page_content {
+    width: 100%;
+}
 #landing #scrollDown {
     width: 130px;
     height: 41px;
@@ -231,7 +234,13 @@
 }
 #products #image {
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-grow: 1;
+}
+#products #image img {
+    width: 75%;
 }
 #products #text {
     display: flex;
@@ -482,7 +491,7 @@
     padding: 0px;
 }
 #page_404 p {
-    font-size: 2.4rem;
+    font-size: 1.6rem;
     margin: 0px;
     color: var(--black);
     text-align: center;
@@ -497,8 +506,84 @@
     background-color: var(--black);
     border: 0px;
     border-radius: 50px;
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: var(--white);
+}
+
+
+#products_page h1 {
+    font-size: 4rem;
+    font-weight: 400;
+    padding-top: 100px;
+}
+#products_page #control {
+    display: flex;
+    width: 100%;
+    gap: 15px;
+    flex-direction: column;
+}
+#products_page #control #search {
+    background-color: var(--black);
+    width: 100%;
+    max-width: 350px;
+    height: 52px;
+    border-radius: 50px;
+}
+#products_page #control #search input {
+    height: 100%;
+    width: calc(100% - 50px);
+    font-size: 1.6rem;
+    color: var(--white);
+    padding: 0px 25px;
+    background-color: transparent;
+    border: 0px;
+}
+#products_page #control #search input::placeholder {
+    color: var(--white);
+}
+#products_page #control #flex {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#products_page #control #flex #list_items {
+    font-size: 1.4rem;
+    color: var(--black);
+    padding: 0px;
+    margin: 0px;
+}
+#products_page #control #buttons {
+    display: flex;
+    gap: 12px;
+}
+#products_page #control #buttons .button {
+    height: 44px;
+    border-radius: 44px;
+    background-color: var(--black);
+    color: var(--white);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 0px 10px;
+}
+#products_page #products {
+    width: 100%;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 17px;
+}
+#products_page #products #product {
+    background-color: #89A19F;
+    border-radius: 30px;
+    /* padding: 5px; */
+    /* aspect-ratio: 3/2; */
+    width: calc(100% - 0px);
+}
+#products_page #products #product #image {
+    width: 80%;
+    margin: 20px auto;
 }
 @media (min-width: 430px) {
     #landing svg {
@@ -538,15 +623,37 @@
         padding-left: 20px;
         padding-top: 20px;
     }
+    #products_page #products {
+        grid-template-columns: calc(50% - 10px) calc(50% - 10px);
+    }
 }
 
 @media (min-width: 900px) {
+    #products_page #control {
+        display: flex;
+        flex-direction: row;
+    }
+    #products_page .button {
+        padding: 0px 20px !important;
+    }
+    #products_page #products #product #image {
+        width: 90%;
+        /* margin: 20px auto; */
+    }
+
     #others_page_content #content  {
         width: calc(100% - 70px);
         padding-left: 35px;
     }
-
-
+    #products #image img {
+        width: 55%;
+    }
+    #page_404 p {
+        font-size: 2.4rem;
+    }
+    #page_404 button {
+        font-size: 2rem;
+    }
     #landing svg {
         width: auto;
         height: 30%;
@@ -560,7 +667,7 @@
         font-weight: 400;
     }
     #products #trail #product {
-        aspect-ratio: 2.7/2;
+        aspect-ratio: 2.3/2;
         height: 50vh;
     }
     #products #text p {
@@ -580,6 +687,10 @@
         /* height: 50vh; */
         aspect-ratio: 50/50;
     }
+    #products_page #products {
+        gap: 40px;
+        grid-template-columns: calc(50% - 20px) calc(50% - 20px); 
+       }
 }
 
 @media (min-width: 1300px) {
@@ -644,6 +755,7 @@
     #ratings #section_reviews {
         height: 500px;
     }
+    
 }
 @media (min-width: 1800px) {
     #products #trail #product:first-child {
@@ -658,5 +770,9 @@
     #products #text button {
         padding-left:40px;
         padding-right: 40px;
+    }
+    #products_page #products {
+        gap: 40px;
+        grid-template-columns: repeat(3, calc(33% - 20px))  ; 
     }
 }
