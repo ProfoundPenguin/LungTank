@@ -2,6 +2,11 @@ const pc_menu = document.querySelectorAll('.pc_menu div')
 const hover_effect = document.querySelector('#hover_effect')
 const banner_bar = document.querySelector('#banner #main_bar')
 
+const listItems = document.querySelectorAll('#faq li');
+
+
+
+
 pc_menu.forEach(element => {
     element.addEventListener('mouseover', ()=> {
         pc_menu.forEach(theElement => {
@@ -34,7 +39,6 @@ banner_bar.addEventListener('mouseleave', ()=> {
 })
 
 
-const listItems = document.querySelectorAll('#faq li');
 
 listItems.forEach(item => {
     item.addEventListener('click', function() {
@@ -50,3 +54,6 @@ listItems.forEach(item => {
         }
     });
 });
+
+
+

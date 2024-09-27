@@ -1,5 +1,6 @@
 from django.contrib import admin
 from . import models
+from view import models as view_model
 
 # Register your models here.
 admin.site.register(models.Product)
@@ -11,3 +12,4 @@ class ProductImageAdmin(admin.ModelAdmin):
 # Register the model with the custom admin class
 admin.site.register(models.Product_Image, ProductImageAdmin)
 admin.site.register(models.Sale)
+admin.site.register(view_model.Faq)

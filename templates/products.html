@@ -1,5 +1,14 @@
 {% extends 'base.html' %}
-
+{% block extra_body_class %}
+<a href="/">
+    <div id="back_button">
+        <svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.5 14L1 7.5L7.5 1" stroke="#CDE8E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        <p class="pc_only">Back</p>                    
+    </div>
+</a>
+{% endblock extra_body_class %}
 {% block content %}
 
 <div id="products_page" class="section">
@@ -7,10 +16,17 @@
     <div id="control">
         <div id="search">
             <input type="text" placeholder="Search Product">
+            <div id="reset_search" onclick="reset_search()">
+                <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.3623 1L15.3623 15" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M15 1L0.999999 15" stroke="black" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    
+            </div>
         </div>
         <div id="flex">
             <p id="list_items">
-                Listed {{products|length }} Products
+                Listed {{ products|length }} Products
             </p>
             <div id="buttons">
                 <div id="sort" class="button">Sort By
@@ -28,7 +44,7 @@
     </div>
     <div id="products">
         {% for product in products %}
-        <div id="product">
+        <div id="product" data-name="{{ product.name }}">
             <div id="image">
                 {% if product.images.all %}
                     <img src="{{ product.images.all.0.image_400.url }}" alt="{{ product.name }} Image">
@@ -50,11 +66,51 @@
                 </button>
             </div>
         </div>
-        
+            
+        </div>
         {% empty %}
             <p>Could not get any products at the moment</p>
         {% endfor %}
     </div>
 </div>
 
+<script>
+    const products = document.querySelectorAll('#products_page #product')
+    const search_input = document.querySelector("#control #search input")
+
+    function search(searchTerm) {
+        if (searchTerm != "") {
+            document.querySelector("#control #search").classList.add('searched')
+        } else {
+            document.querySelector("#control #search").classList.remove('searched')
+        }
+        // Convert the search term to lowercase for case-insensitive matching
+        const lowerCaseTerm = searchTerm.toLowerCase();
+
+        // Iterate over each product element
+        products.forEach(product => {
+            // Get the product name from the data attribute
+            const productName = product.getAttribute('data-name').toLowerCase();
+
+            // Check if the product name includes the search term
+            if (productName.includes(lowerCaseTerm)) {
+                product.style.display = 'block'; // Show matching products
+            } else {
+                product.style.display = 'none'; // Hide non-matching products
+            }
+        });
+    }
+
+    function reset_search() {
+        search_input.value="";
+        search("")
+    }
+
+    search_input.addEventListener('input', ()=> {
+        console.log(search_input.value);
+        search(search_input.value)
+    })
+</script>
+
 {% endblock content %}
+
