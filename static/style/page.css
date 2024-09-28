@@ -652,6 +652,15 @@
 }
 
 @media (min-width: 900px) {
+    #products #sticky {
+        min-height: 670px;
+    }
+    #products #trail #product {
+        min-height: 400px;
+    }
+    #more_product {
+        min-height: 400px;
+    }
     #products_page #control {
         display: flex;
         flex-direction: row;
@@ -693,7 +702,7 @@
         font-weight: 400;
     }
     #products #trail #product {
-        aspect-ratio: 2.3/2;
+        aspect-ratio: 2.7/2;
         height: 50vh;
     }
     #products #text p {
@@ -712,6 +721,7 @@
     #more_product {
         /* height: 50vh; */
         aspect-ratio: 50/50;
+        color: var(--black);
     }
     #products_page #products {
         gap: 40px;

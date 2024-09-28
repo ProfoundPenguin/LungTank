@@ -99,24 +99,26 @@
                 {% empty %}
                     <p>Could not get any products at the moment</p>
                 {% endfor %}
-                <div id="more_product">
-                    <p>More Product</p>
-                    <div id="button_content">
-                        <div id="top_ball"></div>
-                        <div id="button"></div>
-                        <div id="bottom_ball"></div>
+                <a href="/products">
+                    <div id="more_product">
+                        <p>More Product</p>
+                        <div id="button_content">
+                            <div id="top_ball"></div>
+                            <div id="button"></div>
+                            <div id="bottom_ball"></div>
+                        </div>
+                        <svg>
+                            <filter id="gooey">
+                            <feGaussianBlur in- "SourceGraphic" stdDeviation="10"/>
+                            <feColorMatrix values="
+                            1 0 0 0 0
+                            0 1 0 0 0
+                            0 0 1 0 0
+                            0 0 0 30 -10" />
+                            </filter>
+                        </svg>
                     </div>
-                    <svg>
-                        <filter id="gooey">
-                        <feGaussianBlur in- "SourceGraphic" stdDeviation="10"/>
-                        <feColorMatrix values="
-                        1 0 0 0 0
-                        0 1 0 0 0
-                        0 0 1 0 0
-                        0 0 0 30 -10" />
-                        </filter>
-                    </svg>
-                </div>
+                </a>
             </div>
             <div class="section" id="progressBar"><div id="progress"></div></div>
         </div>
