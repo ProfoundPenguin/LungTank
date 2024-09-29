@@ -72,7 +72,7 @@ button.black p {
     background-color: #a9bebd;
 }
 .button_hover_effect_parent.black #hover_effect {
-    background-color: #333333;
+    background-color: #161B1A;
 }
 .button_hover_effect_parent.super_black #hover_effect {
     background-color: var(--black);
