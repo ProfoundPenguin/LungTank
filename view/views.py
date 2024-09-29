@@ -6,10 +6,16 @@ from .models import *  # Import the Product model
 
 def index(request):
     products = Product.objects.prefetch_related('images').all()  
+    landing = Landing.load()
+    video_file_url = landing.video.url 
     faqs = Faq.objects.all()
+    reviews = Review.objects.all().order_by('-rating', '-created_at')[:3]
+
     data = {
         'products': products,
         'faqs': faqs,
+        'landing_video': video_file_url,
+        'reviews': reviews,
     }
 
     return render(request, 'index.html', data) 

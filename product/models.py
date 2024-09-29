@@ -7,6 +7,8 @@ from PIL import Image as PilImage
 import io
 from django.dispatch import receiver
 from django.db.models.signals import post_save
+from django.core.validators import MinValueValidator, MaxValueValidator
+from decimal import Decimal, ROUND_HALF_UP
 
 class Product(models.Model):
     name = models.TextField(max_length=120, null=False, blank=False)
@@ -41,6 +43,30 @@ class Product(models.Model):
 
     # def get_absolute_url(self):
     #     return reverse("_detail", kwargs={"pk": self.pk})
+
+class Review(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reviews')
+    rating = models.DecimalField(
+        max_digits=4,  # Increased to accommodate 4.75
+        decimal_places=2,
+        validators=[
+            MinValueValidator(Decimal('0.0')),
+            MaxValueValidator(Decimal('5.0'))
+        ]
+    )
+    name = models.TextField(null=False, blank=False)
+    content = models.TextField(null=False, blank=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        # Round the rating to 2 decimal places
+        if self.rating is not None:
+            self.rating = self.rating.quantize(Decimal('0.00'), rounding=ROUND_HALF_UP)
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f'Review for {self.product.name} - Rating: {self.rating}'
+    
 
 class Product_Image(models.Model):
     product = models.ForeignKey(Product, related_name="images", on_delete=models.CASCADE)
