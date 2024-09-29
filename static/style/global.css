@@ -22,7 +22,12 @@ body {
 button {
     cursor: pointer;
 }
-
+img {
+    pointer-events: none
+}
+button.black p {
+    color: var(--white) !important;
+}
 * {
     font-family: 'inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     box-sizing: content-box;
@@ -45,6 +50,36 @@ button {
     display: none;
 }
 
+.button_hover_effect_parent {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.button_hover_effect_parent * {
+    position: relative;
+    z-index: 2;
+}
+.button_hover_effect_parent #hover_effect {
+    width: 200%;
+    height: 200%;
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50%, 100%);
+    transition: 0.2s ease-out;
+    background-color: #a9bebd;
+}
+.button_hover_effect_parent.black #hover_effect {
+    background-color: #333333;
+}
+.button_hover_effect_parent.super_black #hover_effect {
+    background-color: var(--black);
+}
+.button_hover_effect_parent:hover #hover_effect {
+    transform: translate(-50%, -10%);
+}
 #global_content {
     /* width: calc(100% - 42px); */
     width: 100%;
@@ -102,7 +137,12 @@ body.take_his_glasses #take_dudes_glasses {
     justify-content: center;
     align-items: center;
     border-radius: 52px;
+    cursor: pointer;
     background-color: var(--black);
+}
+#back_button p {
+    color: var(--white);
+    font-size: 1.6rem;
 }
 #back_button svg {
     margin-left: -2px;
@@ -143,7 +183,7 @@ body.menu #banner #shades #left {
 body.menu #banner #shades #right {
     transform: translateX(35.5px);
 }
-#banner #hover_effect {
+#banner #the_hover_effect {
     width: 0px;
     left: 0px;
     pointer-events: none;
@@ -158,7 +198,7 @@ body.menu #banner #shades #right {
     transition: 0.1s;
     padding: 20px 21px;
 }
-#banner #main_bar:hover #hover_effect {
+#banner #main_bar:hover #the_hover_effect {
     opacity: 1;
 }
 #banner #main_bar {
@@ -475,9 +515,24 @@ body.cart #banner #mobile_menu ul {
 #footer ul li {
     margin-top: 4px;
     font-weight: 500;
+    position: relative;
     width: max-content;
     color: var(--black);
     font-size: 1.6rem;
+}
+#footer ul li #line {
+    position: absolute;
+    bottom: -2px;
+    background-color: var(--black);
+    height: 2px;
+    border-radius: 2px;
+    left: 0px;
+    max-width: 0%;
+    transition: 0.2s;
+    width: 100%;
+}
+#footer ul li:hover #line {
+    max-width: 100%;
 }
 
 #social {
@@ -816,13 +871,24 @@ body.cart #banner #mobile_menu ul {
         cursor: pointer;
         width: 100px;
         max-width: 100px;
+        transition: 0.1s;
         align-items: center;
+        border-radius: 52px;
         height: 100%;
+    }
+    #cart_button:hover {
+        /* background-color: var(--black); */
+    }
+    #cart_button p, #cart_button svg {
+        transition: 0.2s;
+    }
+    #cart_button:hover p, #cart_button:hover svg {
+        filter: invert();
     }
     #cart_button p {
         display: block;
         font-size: 1.4rem;
-        text-decoration: underline;
+        border-bottom: 1px solid var(--black);
         color: var(--black);
     }
 

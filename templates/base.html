@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lung tank</title>
 
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
     <link rel="stylesheet" href="{% static "style/global.css" %}">
     <link rel="stylesheet" href="{% static "style/page.css" %}">
     
@@ -59,7 +63,8 @@
 <body class=" ">
     <div id="pc_cart" class="pc_only">
         <div id="cart_banner">
-            <button onclick="closeall()">
+            <button onclick="closeall()" class="button_hover_effect_parent">
+                <div id="hover_effect"></div>
                 <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1.3623 1L15.3623 15" stroke="black" stroke-width="2" stroke-linecap="round"/>
                     <path d="M15 1L0.999999 15" stroke="black" stroke-width="2" stroke-linecap="round"/>
@@ -350,7 +355,8 @@
             </div>
             <div id="cart_footer">
                 <p class="total">Your Total: 1650 USD (Without taxes)</p>
-                <button>
+                <button class="button_hover_effect_parent black">
+                    <div id="hover_effect"></div>
                     <p>Checkout</p>
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <rect width="14" height="14" fill="url(#pattern0_44_32)"/>
@@ -376,7 +382,7 @@
             
             {% block extra_body_class %}{% endblock extra_body_class %}
             <div id="main_bar">
-                <div id="hover_effect" class="pc_only"></div>
+                <div id="the_hover_effect" class="pc_only"></div>
                 <div id="left_menu" class="pc_only pc_menu">
                     
                     <a href="/">
@@ -385,7 +391,7 @@
                     <a href="/products">
                         <div>Products</div>
                     </a>
-                    <a href="/#faq">
+                    <a href="/faq">
                         <div>FAQs</div>
                     </a>
                 </div>
@@ -438,7 +444,7 @@
                 <ul>
                     <a href="/"><li>Home</li></a>
                     <a href="/products"><li>Products</li></a>
-                    <a href="/#faq"><li>FAQs</li></a>
+                    <a href="/faq"><li>FAQs</li></a>
                     <a href="/tutorial"><li>Tutorial</li></a>
                     <a href="/safety"><li>Safety</li></a>
                     <a href="/contact"><li>Contact</li></a>
@@ -493,7 +499,8 @@
                     </div>
                 </div>
             </div>
-            <div id="cart_button" onclick="cart()" class="pc_only">
+            <div id="cart_button" onclick="cart()" class="pc_only button_hover_effect_parent black super_black">
+                <div id="hover_effect"></div>
                 <p id="cart_count">0</p>
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <rect width="22" height="22" fill="url(#pattern0_48_85)"/>
@@ -521,25 +528,28 @@
                 <div id="texts">
                     <h1>Get Lungtank</h1>
                     <ul>
-                        <a href=""><li>User Manual & Safety Guidelines</li></a>
-                        <a href=""><li>Terms of Service</li></a>
-                        <a href=""><li>Refund Policy</li></a>
-                        <a href=""><li>Privacy Policy</li></a>
+                        <a href=""><li><div id="line"></div> User Manual & Safety Guidelines</li></a>
+                        <a href=""><li><div id="line"></div>Terms of Service</li></a>
+                        <a href=""><li><div id="line"></div>Refund Policy</li></a>
+                        <a href=""><li><div id="line"></div>Privacy Policy</li></a>
                     </ul>
                 </div>
                 <div id="social">
                     <a href="">
-                        <div id="platform">
+                        <div id="platform" class="button_hover_effect_parent">
+                            <div id="hover_effect"></div>
                             <img src="{% static "img/icons/insta.webp" %}" alt="">
                         </div>
                     </a>
                     <a href="">
-                        <div id="platform">
+                        <div id="platform" class="button_hover_effect_parent">
+                            <div id="hover_effect"></div>
                             <img src="{% static "img/icons/facebook.webp" %}" alt="">
                         </div>
                     </a>
                     <a href="">
-                        <div id="platform">
+                        <div id="platform" class="button_hover_effect_parent">
+                            <div id="hover_effect"></div>
                             <img src="{% static "img/icons/email.webp" %}" alt="">
                         </div>
                     </a>
@@ -547,7 +557,8 @@
             </div>
             <div id="fanner">
                 <p>Copyright 2024 © All Rights Reserved</p>
-                <div id="btt">
+                <div id="btt" class="button_hover_effect_parent black">
+                    <div id="hover_effect"></div>>
                     <svg class="mobile_only" width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 7.5L7.5 1L14 7.5" stroke="#CDE8E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>   

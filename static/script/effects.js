@@ -1,5 +1,5 @@
 const pc_menu = document.querySelectorAll('.pc_menu div')
-const hover_effect = document.querySelector('#hover_effect')
+const hover_effect = document.querySelector('#the_hover_effect')
 const banner_bar = document.querySelector('#banner #main_bar')
 
 const listItems = document.querySelectorAll('#faq li');

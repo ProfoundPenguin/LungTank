@@ -14,6 +14,9 @@
     height: calc(45svh + 100px);
     max-height: 600px;
 }
+.page_gap {
+    padding-top: 100px;
+}
 #landing svg {
     width: 70%;
 }
@@ -50,6 +53,44 @@
 #video video {
     width: 100%;
     border-radius: 25px;
+}
+
+
+#selling_points {
+    margin-top: 15px;
+    display: flex;
+    gap: 35px;
+    flex-direction: column;
+}
+#selling_points #left {
+    padding: 40px 25px;
+    border-radius: 25px;
+    background-color: #B4CFCD;
+}
+#selling_points #left h1 {
+    font-weight: 400;
+    font-size: 2rem;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 20px;
+}
+#selling_points #left p {
+    font-size: 1.4rem;
+    padding: 0px;
+    margin: 0px;
+}
+#selling_points #right {
+    display: flex;
+    justify-content: space-around;
+}
+#selling_points #right div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#selling_points #right img {
+    height: 60px;
 }
 
 #info {
@@ -125,6 +166,7 @@
 #products #progressBar #progress {
     width: 25%;
     height: 5px;
+    outline: 5px solid var(--white);
     border-radius: 5px;
     background-color: var(--black);
 }
@@ -224,7 +266,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: 0.2s;
     font-size: 1.8rem;
+}
+#more_product #button_content:hover #top_ball {
+    background-color: #96b1ae;
+}
+#more_product #button_content:hover #bottom_ball {
+    background-color: #96b1ae;
+}
+#more_product #button_content:hover #button {
+    background-color: #96b1ae;
 }
 #products #trail #product:first-child {
     margin-left: 20px;
@@ -339,8 +391,12 @@
     padding: 12px;
     border-radius: 12px;
     margin: 12px;
+    transition: 0.2s;
     background-color: #AAC6C3;
 
+}
+#ratings #section_reviews #review:hover {
+    background-color: #C5DDDB;
 }
 #ratings #section_reviews #review p {
     font-size: 1.6rem;
@@ -430,6 +486,7 @@
 }
 #faq ul li #q #answer {
     max-height: 0px;
+    max-width: 700px;
     overflow: hidden;
     transition: 0.2s ease;
 }
@@ -614,6 +671,7 @@
     }
 }
 @media (min-width: 550px) {
+    
     #landing svg {
         width: 40%;
     }
@@ -652,6 +710,14 @@
 }
 
 @media (min-width: 900px) {
+    #selling_points {
+        flex-direction: row;
+        margin-top: 35px;
+    }
+    
+    #selling_points #right {
+        flex-grow: 1;
+    }
     #products #sticky {
         min-height: 670px;
     }
@@ -730,6 +796,26 @@
 }
 
 @media (min-width: 1300px) {
+    #selling_points #left {
+        padding: 70px 50px;
+    }
+    #selling_points #left {
+        max-width: 500px;
+        border-radius: 53px;
+    }
+    #selling_points #left h1 {
+        font-size: 3rem;
+    }
+    #selling_points #right {
+        padding: 0px 100px;
+        gap: 40px;
+    }
+    #selling_points #right p {
+        font-size: 1.8rem;
+    }
+    #selling_points #right img {
+        height: 70px;
+    }
     #info #part h1 {
         font-size: 5rem;
     }
@@ -792,6 +878,11 @@
         height: 500px;
     }
     
+}
+@media (min-width: 1500px) {
+    #selling_points #right img {
+        height: 100px;
+    }
 }
 @media (min-width: 1800px) {
     #products #trail #product:first-child {

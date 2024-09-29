@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block extra_body_class %}
+
+<div id="back_button" onclick="window.history.back();" class="button_hover_effect_parent black">
+
+    <div id="hover_effect"></div>
+    <svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.5 14L1 7.5L7.5 1" stroke="#CDE8E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    <p class="pc_only">Back</p>                    
+</div>
+
+{% endblock extra_body_class %}
+{% block content %}
+
+<div id="faq" class="section page_gap">
+    <p id="title">Frequently Asked Questions </p>
+    <ul>
+        {% for faq in faqs %}
+        <li>
+            <div id="q">
+                <div id="title">
+                    <p>{{faq.question}}</p>
+                    <div id="shape">
+                        <div id="line"></div>
+                        <div id="line"></div>
+                    </div>
+                </div>
+                <div id="answer">
+                    <p>
+                        {{faq.answer|safe}}
+                    </p>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock content %}
+

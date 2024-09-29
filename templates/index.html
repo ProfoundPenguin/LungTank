@@ -42,30 +42,24 @@
 <div id="video" class="section">
     <video muted loop autoplay src="{% static 'video/landing.mp4' %}"></video>
 </div>
-<div id="info" class="section">
-    <div id="part">
-        <div id="flex">
-            <div id="img">
-                <img src="{% static 'img/product/mask.webp' %}" alt="">
-            </div>
-            <div id="caption">
-                <p>The lung tank is an innovative underwater breathing device that allows users to explore oceans and lakes with ease. Its ergonomic mask fits comfortably and uses advanced technology to extract oxygen from the water, enabling divers to breathe freely for up to ten minutes.</p>
-            </div>
-        </div>
-        <h1>BREATH FOR UPTO 10 MINUTES</h1>
+<div id="selling_points" class="section">
+    <div id="left">
+        <h1>BREATH UNDERWATER FOR UP TO 10 MINUTES</h1>
+        <p>And Refill On The Go</p>
     </div>
-    <div id="part">
-        <div id="flex">
-            <div id="img">
-                <img src="{% static 'img/product/mask.webp' %}" alt="">
-            </div>
-            <div id="caption">
-                <p>We sell both manual pump and auto compressor, helping you refill the tank yourself
-                    and continue your diving.</p>
-                <a href=""><button>Learn More</button></a>
-            </div>
+    <div id="right">
+        <div>
+            <img src="{% static 'img/icons/pump.webp' %}">
+            <p>Refill Yourself</p>
         </div>
-        <h1>REFILL YOURSELF</h1>
+        <div>
+            <img src="{% static 'img/icons/travel.webp' %}">
+            <p>Travel Friendly</p>
+        </div>
+        <div>
+            <img src="{% static 'img/icons/certified.webp' %}">
+            <p>Fully Certified</p>
+        </div>
     </div>
 </div>
 <div id="products">
@@ -91,8 +85,11 @@
                                 {{ product.price }} USD
                             </p>
                         </div>
-                        <button>
-                            Add To Cart
+                        <button class="button_hover_effect_parent black">
+                            <div id="hover_effect"></div>
+                            <p>
+                                Add To Cart
+                            </p>
                         </button>
                     </div>
                 </div>
@@ -236,10 +233,11 @@
 <div id="faq" class="section">
     <p id="title">Frequently Asked Questions </p>
     <ul>
+        {% for faq in faqs %}
         <li>
             <div id="q">
                 <div id="title">
-                    <p>How safe is the Lung T-500?</p>
+                    <p>{{faq.question}}</p>
                     <div id="shape">
                         <div id="line"></div>
                         <div id="line"></div>
@@ -247,11 +245,12 @@
                 </div>
                 <div id="answer">
                     <p>
-                        {% lorem 1 p random %}
+                        {{faq.answer|safe}}
                     </p>
                 </div>
             </div>
         </li>
+        {% endfor %}
     </ul>
 </div>
 <script>
