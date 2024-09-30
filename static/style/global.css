@@ -394,6 +394,7 @@ body.cart #banner #mobile_menu #cart {
 #banner #mobile_menu #cart #item #delete {
     height: 31px;
     width: 31px;
+    min-width: 31px;
     background-color: var(--white);
     border-radius: 50%;
     display: flex;

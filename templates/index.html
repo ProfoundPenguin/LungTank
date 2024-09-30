@@ -86,7 +86,7 @@
                                 {{ product.price }} USD
                             </p>
                         </div>
-                        <button class="button_hover_effect_parent black">
+                        <button  onclick="addToCart({{ product.id }})" class="button_hover_effect_parent black">
                             <div id="hover_effect"></div>
                             <p>
                                 Add To Cart
@@ -287,7 +287,6 @@
 </div>
 <script>
     function sizeReviews() {
-        console.log("Hola");
         
         const container = document.querySelector('#section_reviews');
         const children = container.children;
