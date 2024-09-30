@@ -49,11 +49,17 @@ button.black p {
 .tablet_only {
     display: none;
 }
+.cursor {
+    cursor: pointer;
+}
 
 .button_hover_effect_parent {
     position: relative;
     overflow: hidden;
     cursor: pointer;
+}
+.button_hover_effect_parent:active {
+    transform: scale(0.95);
 }
 .button_hover_effect_parent * {
     position: relative;

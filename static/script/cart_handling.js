@@ -9,12 +9,25 @@ function addToCart(productId) {
     .then(data => {
         if (data.status === 'success') {
             drawCart()
+            animateCartButton()
             // Update the cart UI, e.g., refresh cart count or display message
         } else {
             console.log('Error adding item:', data.message);
         }
     })
     .catch(error => console.error('Error:', error));
+}
+
+function animateCartButton() {
+    document.querySelectorAll('#cart_button').forEach(theE => {
+        let element = theE.querySelector("svg")
+        let animation = "animate__headShake"
+        element.classList.add('animate__animated', animation);
+
+        element.addEventListener('animationend', () => {
+            element.classList.remove(animation);
+        });
+    });
 }
 
 function removeFromCart(productId) {
@@ -120,17 +133,17 @@ function drawCart() {
                         <p class="price">${item.price} USD</p>
                     </div>
                     <div id="amount">
-                        <svg onclick="addToCart(${productId})"  width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="cursor" onclick="addToCart(${productId})"  width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="8" cy="8" r="8" fill="#CDE8E5"/>
                             <path d="M7.10086 5.84721C7.46582 5.09743 8.53418 5.09743 8.89914 5.84721L9.96 8.02667L10.7791 9.62204C11.2015 10.4447 10.3767 11.3507 9.51811 11.0073L8.37135 10.5486C8.13293 10.4532 7.86697 10.4532 7.62856 10.5486L6.48191 11.0072C5.62327 11.3507 4.79853 10.4447 5.22091 9.62201L6.04 8.02667L7.10086 5.84721Z" fill="black"/>
                         </svg>
                         <p id="unit">${item.quantity}</p>
-                        <svg onclick="decrementCart(${productId})" style="transform: rotate(180deg)" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="cursor" onclick="decrementCart(${productId})" style="transform: rotate(180deg)" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="8" cy="8" r="8" fill="#CDE8E5"/>
                             <path d="M7.10086 5.84721C7.46582 5.09743 8.53418 5.09743 8.89914 5.84721L9.96 8.02667L10.7791 9.62204C11.2015 10.4447 10.3767 11.3507 9.51811 11.0073L8.37135 10.5486C8.13293 10.4532 7.86697 10.4532 7.62856 10.5486L6.48191 11.0072C5.62327 11.3507 4.79853 10.4447 5.22091 9.62201L6.04 8.02667L7.10086 5.84721Z" fill="black"/>
                         </svg>                                            
                     </div>
-                    <div id="delete" onclick="removeFromCart(${productId})">
+                    <div id="delete" class="cursor" onclick="removeFromCart(${productId})">
                         <svg width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <rect width="14" height="20" fill="url(#pattern0_132_43)"/>
                             <defs>
