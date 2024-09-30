@@ -590,6 +590,31 @@ body.cart #banner #mobile_menu ul {
     color: var(--white);
 }
 
+#under_conctruction {
+    width: calc(100% - 60px);
+    background-color: var(--grey);
+    max-width: 400px;
+    gap: 25px;
+    padding: 20px 30px;
+    border-radius: 20px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+
+}
+#under_conctruction h1 {
+    font-size: 2rem;
+    font-weight: 500;
+}
+#under_conctruction #back_button {
+    position: relative !important;
+}
+a:visited, a {
+    text-decoration: none;
+}
 @media (min-width: 570px) {
     .tablet_only {
         display: block;

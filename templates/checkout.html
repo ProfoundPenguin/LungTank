@@ -1,0 +1,110 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LungTank | Checkout </title>
+
+    <link rel="stylesheet" href="{% static "style/global.css" %}">
+    <link rel="stylesheet" href="{% static "style/page.css" %}">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="under_conctruction">
+        <h1>Sorry! This part is currently under work.</h1>
+        <div id="back_button" onclick="window.history.back();" class="button_hover_effect_parent black">
+
+            <div id="hover_effect"></div>
+            <svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.5 14L1 7.5L7.5 1" stroke="#CDE8E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            <p class="pc_only">Back</p>                    
+        </div>
+    </div>
+    <!-- <div id="checkout" class="section">
+        <div id="items">
+            <h1>Checkout</h1>
+            {% if cart %}
+            <div id="checkout_cart" class="">
+                <div id="content">
+                    <p class="title">Your Cart</p>
+                    <div id="cart_content">
+                        {% for product_id, item in cart.items %}
+                        <div id="item">
+                            <div id="img">
+                                <img src="{{ item.image }}">
+                            </div>
+                            <div id="description">
+                                <p class="name">{{ item.name }}</p>
+                                <p class="price">{{ item.price }} USD</p>
+                            </div>
+                            <!-- <div id="amount">
+                                <svg class="cursor" onclick="addToCart({{product_id}})"  width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="8" cy="8" r="8" fill="#CDE8E5"/>
+                                    <path d="M7.10086 5.84721C7.46582 5.09743 8.53418 5.09743 8.89914 5.84721L9.96 8.02667L10.7791 9.62204C11.2015 10.4447 10.3767 11.3507 9.51811 11.0073L8.37135 10.5486C8.13293 10.4532 7.86697 10.4532 7.62856 10.5486L6.48191 11.0072C5.62327 11.3507 4.79853 10.4447 5.22091 9.62201L6.04 8.02667L7.10086 5.84721Z" fill="black"/>
+                                </svg>
+                                <p id="unit">{{ item.quantity }}</p>
+                                <svg class="cursor" onclick="decrementCart({{product_id}})" style="transform: rotate(180deg)" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="8" cy="8" r="8" fill="#CDE8E5"/>
+                                    <path d="M7.10086 5.84721C7.46582 5.09743 8.53418 5.09743 8.89914 5.84721L9.96 8.02667L10.7791 9.62204C11.2015 10.4447 10.3767 11.3507 9.51811 11.0073L8.37135 10.5486C8.13293 10.4532 7.86697 10.4532 7.62856 10.5486L6.48191 11.0072C5.62327 11.3507 4.79853 10.4447 5.22091 9.62201L6.04 8.02667L7.10086 5.84721Z" fill="black"/>
+                                </svg>                                            
+                            </div>
+                            <div id="delete" class="cursor" onclick="removeFromCart({{product_id}})">
+                                <svg width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <rect width="14" height="20" fill="url(#pattern0_132_43)"/>
+                                    <defs>
+                                    <pattern id="pattern0_132_43" patternContentUnits="objectBoundingBox" width="1" height="1">
+                                    <use xlink:href="#image0_132_43" transform="matrix(0.014881 0 0 0.0104167 -0.214286 0)"/>
+                                    </pattern>
+                                    <image id="image0_132_43" width="96" height="96" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAAAsTAAALEwEAmpwYAAADIklEQVR4nO2dOayMURiG31xBaU0QEQkay43OUhGJwtIIUVkrokN3LVEQKpSWDo0QW2K5GqKxlZZG0LmREHcpZC73vvIlv0ZMcsecc+b9ft+TPO1kznOS/5/M/80ZIAiCIAiCIAiCQItpAA4BeAbgKwCO0S8AngLoATC104vwynYA/S1Eb6a9xrZOL8YbRxOE/1N7zWAMHMsQ/7en6rIDiwHcATCQMRadaA1uA1hUKn43gCGBhVPMoapNdh4KLJai9uaOPw7AsMBCKepw1Sg2ADXdACMuQWi6AQ9QgLgJ46/xB0vdhFF95LoF4JvAdZcd1hrcBLCwVPwgCIIgCIIgCAJUz235n9mjtPU7BIKwsPbMWobVAkFY2FUQYr5AEBZ2HoSYAGBEIAoLOVKtWYo+gTAs5CcI8kIgDAv5HIJcFwjDQl6DIGcEwrCQpyHIAYEwLOR+CLJFIAwLuRmCLBcIw0IugyCzBMKwkDMhSBeAhkAcZrZRrVWSDwKBmNn3EOaxQCBm9hGEuSwQiJm9BGFOCARiZo9DmL0CgZjZPRBmg0AgZnY9hOkWCMTMLoEwkwUCMbOTIM5AzX8DIM8bgVDM5Cs44L5AKGbyHhxwQSAUM3kODjgiEIqZtAlAeXYKhGImbQJQnjUCoZhJmwCUZ4FAKGbSJgDlmQhgVCAWEztarc0FnwWCMbE2+eeGlwLBmFib/HPDDYFgTKxN/rnhrEAwJtYm/9xwUCAYE2uTf27YKhCMibXJPzesEAjGxNrknxtmCwRjYm3yzw1dNTtbrqE8DdeMjwLhmEib+HPHE4FwTKRN/LnjikA4JtIm/txxUiAcE2kTf+7YJxCOibSJP3dsFAjHRNrEnzuWCoRjIoudB5qSKQLhmEib+HNJHY65H4Rj3goEZJu+hmN6BQKyTW3Szy0XBQKyTc/DMTn+DYmFPQzH1OH4gk1wzAwAPwQiso2voafDOVcFQvIftS8U3TO3+ixNZ/YDmIOasBbAd4GobOHSsw41Y2V1zgLFfeftAXwr2FGPu6uf+vSJHHX5s3ovdwHsAjC+05GCIAiCIAiCIECt+QWhxg3O/REwaQAAAABJRU5ErkJggg=="/>
+                                    </defs>
+                                    </svg>
+                                                                             -->
+                            <!-- </div>
+                        </div>
+                        {% endfor %}
+                        
+                    </div>
+            </div>
+            <h3>Total: ${{ cart_total }}</h3>
+            {% else %}
+                <p>Your cart is empty.</p>
+            {% endif %}
+            </div>
+        
+        <div id="payment">
+
+            <form action="/submit-payment" method="POST">
+                <label for="name">Cardholder Name</label>
+                <input type="text" id="name" name="name" placeholder="John Doe" required>
+    
+                <label for="card-number">Card Number</label>
+                <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456" maxlength="19" required>
+    
+                <label for="expiry-date">Expiry Date</label>
+                <input type="text" id="expiry-date" name="expiry-date" placeholder="MM/YY" maxlength="5" required>
+    
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="3" required>
+    
+                <button type="submit">Pay Now</button>
+            </form>
+            
+
+            
+            
+        </div>
+                
+
+            
+    </div> --> 
+
+    <script src="{% static 'script/cart_handling.js' %}"></script>
+    
+</body>
+</html>

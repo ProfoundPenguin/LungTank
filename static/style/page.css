@@ -666,6 +666,83 @@
 #search.searched #reset_search {
     transform: translateX(0%);
 }
+#checkout {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 1200px;
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+    padding: 100px 0px;
+}
+#checkout h1 {
+    font-size: 4rem;
+    font-weight: 500;
+    margin: 0px;
+    padding: 0px;
+}
+#checkout_cart #item {
+    max-width: 500px;
+}
+#checkout_cart #item {
+    width: calc(100% - 40px);
+    max-width: 500px;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: var(--grey);
+    display: flex;
+}
+#checkout_cart #item #delete {
+    height: 40px;
+    aspect-ratio: 1/1;
+    background-color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#checkout_cart #amount {
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#checkout_cart .title {
+    margin-top: 50px;
+    font-size: 1.6rem;
+}
+#checkout_cart #item #description {
+    flex-grow: 1;
+    padding-left: 20px;
+}
+#checkout_cart #item #description p {
+    font-size: 1.4rem;
+}
+#checkout_cart #item #img {
+    height: 70px;
+}
+#checkout_cart #item #img img {
+    width: 100%;
+}
+#checkout h3 {
+    font-size: 1.6rem;
+    width: calc(100% - 40px);
+    background-color: var(--grey);
+    border: 0px;
+    border-radius: 50px;
+    height: 40px;
+    padding: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0px;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+}
 @media (min-width: 430px) {
     #landing svg {
         width: 60%;
@@ -708,6 +785,12 @@
     
 }
 @media (min-width: 750px) {
+    #checkout {
+        flex-direction: row;
+    }
+    #checkout #items, #checkout #payment {
+        width: 50%;
+    }
     #products_page #products {
         grid-template-columns: calc(50% - 10px) calc(50% - 10px);
     }

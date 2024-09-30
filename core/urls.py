@@ -25,7 +25,8 @@ handler404 = 'view.views.page404'
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('view.urls')),
-    path('cart/', include('product.urls'))
+    path('cart/', include('product.urls')),
+    path('payment/', include('payment.urls'))
 ]
 
 if settings.DEBUG:
