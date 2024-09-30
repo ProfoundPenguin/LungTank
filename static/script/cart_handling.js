@@ -78,8 +78,11 @@ function drawCart() {
     .then(data => {
         const cart = data.cart;
         cart_lenght = Object.keys(cart).length
-        
-        document.querySelector("#cart_button.pc_only #cart_count").innerHTML = cart_lenght
+
+        document.querySelectorAll('#cart_count').forEach(element => {
+            element.innerHTML = cart_lenght
+        });
+        // document.querySelector("#cart_button.pc_only #cart_count").innerHTML = cart_lenght
         document.querySelector("#pc_cart #items p").innerHTML = cart_lenght + " Items"
 
         const pc_cart_list = document.querySelector("#pc_cart #cart_content");
@@ -87,6 +90,20 @@ function drawCart() {
 
         pc_cart_list.innerHTML = '';
         mobile_cart_list.innerHTML = '';
+
+        let total = 0;
+
+        // Loop through the cart object
+        for (const [productId, item] of Object.entries(cart)) {
+            // Convert price to a number and multiply by quantity
+            const itemTotal = parseFloat(item.price) * item.quantity;
+            total += itemTotal;
+        }
+
+        document.querySelectorAll("#cart_footer .total").forEach(element => {
+            element.innerHTML = `Your Total: ${total} USD (Without taxes)`
+        });
+         total.toFixed(2);
         // Loop through the cart items and create rows for each
         for (const [productId, item] of Object.entries(cart)) {
             
