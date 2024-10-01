@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_body_class %}
+<div id="back_button" onclick="window.history.back();" class="button_hover_effect_parent black">
+
+    <div id="hover_effect"></div>
+    <svg width="9" height="15" viewBox="0 0 9 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.5 14L1 7.5L7.5 1" stroke="#CDE8E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    <p class="pc_only">Back</p>                    
+</div>
+{% endblock extra_body_class %}
+
+{% block content %}
+
+<div id="tutorial" class="section">
+    <div id="contact_parent">
+        <h2>Safety</h2>
+        <p>
+            Using the Lung underwater breathing device can be a truly amazing experience. Being able to explore the underwater world and see diverse marine life up close can be an unforgettable adventure. However, it is important to remember that using any underwater breathing apparatus is a potentially dangerous activity and safety guidelines must be followed to minimize the risk of injury or death.
+            To purchase any Lung device, you must first read and fully understand our
+            <a href="https://cdn.shopify.com/s/files/1/0710/5934/1603/files/LUNG_USER_MANUAL_SAFETY_GUIDELINES_24082024.pdf?v=1724390144">User Manual & Safety Guidelines.</a>
+        </p>
+    </div>
+    <div id="contact_parent">
+        <h2>Got a question? Contact us below</h2>
+        <form id="contact" action="/submit-contact" method="POST">
+            <input type="text" id="name" name="name" placeholder="John Doe" required>
+
+            <input type="email" id="email" name="email" placeholder="johndoe@example.com" required>
+
+            <input type="text" id="subject" name="subject" placeholder="Your subject here" required>
+
+            <textarea id="message" name="message" rows="5" placeholder="Your message here..." required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

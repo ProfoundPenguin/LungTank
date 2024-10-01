@@ -81,7 +81,13 @@
     margin: 0px;
 }
 #selling_points #right {
-    display: flex;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+    aspect-ratio: 1/1;
+    margin-top: 50px;
     justify-content: space-around;
 }
 #selling_points #right div {
@@ -205,6 +211,28 @@
     flex-direction: column;
     background-color: #89A19F;
     border-radius: 34px;
+}
+#product button.on_wait p {
+    opacity: 0;
+}
+@keyframes rotateAnimation {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+#product button svg {
+    opacity: 0;
+    animation: rotateAnimation 0.5s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#product button.on_wait svg {
+    opacity: 1;
 }
 #more_product {
     height: 50vh;
@@ -743,9 +771,88 @@
     align-items: center;
     font-weight: 400;
 }
+
+#tutorial {
+    padding-top: 100px;
+    max-width: 1300px;
+}
+#tutorial iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 20px;
+}
+#tutorial h1 {
+    font-size: 2rem;
+    font-weight: 500;
+}
+#tutorial h2 {
+    font-size: 3rem;
+    font-weight: 500;
+}
+#tutorial p {
+    font-size: 1.8rem;
+    line-height: 130%;
+}
+#tutorial a {
+    color: var(--black);
+    text-decoration: underline;
+}
+#tutorial div {
+    padding-bottom: 25px;
+}
+
+form#contact {
+    width: 100%;
+    max-width: 700px;
+
+}
+form#contact input {
+    width: calc(100% - 50px);
+    padding: 20px 25px;
+    font-size: 1.4rem;
+    background-color: var(--white);
+    border: 1px solid var(--black);
+    border-radius: 50px;
+    margin-bottom: 15px;
+}
+form#contact textarea {
+    width: calc(100% - 50px);
+    padding: 20px 25px;
+    font-size: 1.4rem;
+    background-color: var(--white);
+    border: 1px solid var(--black);
+    border-radius: 30px;
+    margin-bottom: 15px;
+}
+form#contact textarea::placeholder {
+    color: var(--black);
+}
+form#contact input::placeholder {
+    color: var(--black);
+}
+#contact_parent {
+    position: relative;
+    left: 50%;
+    max-width: 700px;
+    transform: translateX(-50%);
+}
+form#contact button {
+    padding: 20px 35px;
+    background-color: var(--black);
+    border-radius: 35px;
+    border: 0px;
+    color: var(--white);
+    font-size: 1.6rem;
+}
 @media (min-width: 430px) {
     #landing svg {
         width: 60%;
+    }
+    #selling_points #right {
+        display: flex;
+        aspect-ratio: auto;
+        width: 100%;
+
     }
 }
 @media (min-width: 550px) {

@@ -23,6 +23,15 @@ def index(request):
 def product_detail(request, slug):
     return render(request, 'product_detail.html')
 
+def tutorial(request):
+    return render(request, 'tutorial.html')
+
+def contact(request):
+    return render(request, 'contact.html')
+
+def safety(request):
+    return render(request, 'safety.html')
+
 def faq(request):
     faqs = Faq.objects.all()
     data = {
