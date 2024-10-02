@@ -5,7 +5,7 @@ from .models import *  # Import the Product model
 
 
 def index(request):
-    products = Product.objects.prefetch_related('images').all()  
+    products = Product.objects.prefetch_related('images').all().order_by('sales_count')[:8]
     landing = Landing.load()
     video_file_url = landing.video.url 
     faqs = Faq.objects.all()

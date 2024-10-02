@@ -34,17 +34,31 @@
                         <path d="M1 1L6.5 7L12 1" stroke="#CDE8E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>    
                 </div>
-                <div id="sort" class="button">Filter By
-                    <svg width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 1L6.5 7L12 1" stroke="#CDE8E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>                                
+                <div id="sort_options">
+                    <ul>
+                        <li>Assending
+                            <div id="line"></div></li>
+                        <li>Dessending
+                            <div id="line"></div></li>
+                    </ul>
+                    <ul>
+                        <li>Name
+                            <div id="line"></div>
+                        </li>
+                        <li>Price
+                            <div id="line"></div>
+                        </li>
+                        <li>Date stocked
+                            <div id="line"></div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
     <div id="products">
         {% for product in products %}
-        <div id="product" data-name="{{ product.name }}">
+        <div id="product" data-name="{{ product.name }}" data-price="{{ product.price }}" data-modified="{{ product.modified }">
             <div id="image">
                 {% if product.images.all %}
                     <img src="{{ product.images.all.0.image_400.url }}" alt="{{ product.name }} Image">
@@ -76,7 +90,6 @@
             </div>
         </div>
             
-        </div>
         {% empty %}
             <p>Could not get any products at the moment</p>
         {% endfor %}

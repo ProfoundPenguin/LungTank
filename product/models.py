@@ -9,6 +9,7 @@ from django.dispatch import receiver
 from django.db.models.signals import post_save
 from django.core.validators import MinValueValidator, MaxValueValidator
 from decimal import Decimal, ROUND_HALF_UP
+import random
 
 class Product(models.Model):
     name = models.TextField(max_length=120, null=False, blank=False)
@@ -20,7 +21,9 @@ class Product(models.Model):
                 regex=r'^[a-z0-9-]+$',
                 message='Slug can only contain lowercase letters, numbers, and hyphens.'
             )
-        ]
+        ],
+        blank=True,
+        null=True,
     )
 
     price = models.DecimalField(max_digits=10, decimal_places=2, null=False, blank=False)
@@ -28,6 +31,8 @@ class Product(models.Model):
 
     date_added = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
+
+    sales_count = models.PositiveIntegerField(default=random.randint(5, 300))
 
 
     class Meta:
@@ -38,7 +43,7 @@ class Product(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        self.slug = self.slug.lower().replace(" ", "-")  # Ensure lowercase and replace spaces with hyphens
+        # self.slug = self.slug.lower().replace(" ", "-")  # Ensure lowercase and replace spaces with hyphens
         super().save(*args, **kwargs)
 
     # def get_absolute_url(self):

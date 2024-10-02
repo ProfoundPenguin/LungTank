@@ -61,6 +61,20 @@
     </script>
 </head>
 <body class=" ">
+    <div id="cookies_parent" class="section">
+        <div id="cookies">
+            <div id="flex">
+                <img src="{% static 'img/icons/cookies.webp'%}" alt="">
+                <p>We use cookies for your best inexperience.</p>
+            </div>
+            <button onclick="acceptCookies()" class="button_hover_effect_parent black">
+                <div id="hover_effect"></div>
+                <p> 
+                    Ok
+                </p>
+                </button>
+        </div>
+    </div>
     <div id="pc_cart" class="pc_only">
         <div id="cart_banner">
             <button onclick="closeall()" class="button_hover_effect_parent">
@@ -313,5 +327,44 @@
     </div>
     <script src="{% static 'script/effects.js' %}"></script>
     <script src="{% static 'script/cart_handling.js' %}"></script>
+
+    <script>
+        function setCookie(name, value, days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // Expires in 'days'
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+        }
+
+        // Get a cookie by name
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                let cookie = cookies[i];
+                while (cookie.charAt(0) == ' ') cookie = cookie.substring(1);
+                if (cookie.indexOf(nameEQ) == 0) return cookie.substring(nameEQ.length);
+            }
+            return null;
+        }
+
+        // Function to handle accepting cookies
+        function acceptCookies() {
+            setCookie("cookieConsent", "true", 30); // Save consent for 30 days
+            document.getElementById("cookies_parent").style.display = "none"; // Hide banner
+        }
+
+        function checkCookieConsent() {
+            const consent = getCookie("cookieConsent");
+            if (!consent) {
+                document.getElementById("cookies_parent").style.display = "block"; // Show banner if no consent
+            }
+        }
+
+        // Run on page load
+        window.onload = function () {
+            checkCookieConsent();
+        }
+    </script>
 </body>
 </html>
