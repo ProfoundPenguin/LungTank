@@ -11,6 +11,7 @@
 {% endblock extra_body_class %}
 {% block content %}
 
+
 <div id="products_page" class="section">
     <h1>Our Products</h1>
     <div id="control">
@@ -35,20 +36,20 @@
                     </svg>    
                 </div>
                 <div id="sort_options">
-                    <ul>
-                        <li>Assending
+                    <ul id="first-ul">
+                        <li onclick="sortProducts(sort, 'asc', 11)">Assending
                             <div id="line"></div></li>
-                        <li>Dessending
+                        <li onclick="sortProducts(sort, 'desc', 22)">Dessending
                             <div id="line"></div></li>
                     </ul>
-                    <ul>
-                        <li>Name
+                    <ul id="second-ul">
+                        <li onclick="sortProducts('name', temp_order, 1)">Name
                             <div id="line"></div>
                         </li>
-                        <li>Price
+                        <li onclick="sortProducts('price', temp_order, 2)">Price
                             <div id="line"></div>
                         </li>
-                        <li>Date stocked
+                        <li onclick="sortProducts('sold', temp_order, 3)">Best Selling
                             <div id="line"></div>
                         </li>
                     </ul>
@@ -133,7 +134,34 @@
         search(search_input.value)
     })
 
-    function sortProducts(attribute, order) {
+    var temp_order = 'asc'
+    var sort = 'name'    
+    function sortProducts(attribute, order, to_highlight) {
+
+        const firstUl = document.getElementById('first-ul').children;
+        const secondUl = document.getElementById('second-ul').children;
+
+        // Reset all 'li' elements
+        
+        if (to_highlight > 0 && to_highlight < 5) {
+            [...secondUl].forEach(li => li.className = '');
+        } else {
+            [...firstUl].forEach(li => li.className = '');
+        }
+
+        if (to_highlight === 1) {
+            secondUl[0].className = 'active';
+        } else if (to_highlight === 2) {
+            secondUl[1].className = 'active';
+        } else if (to_highlight === 3) {
+            secondUl[2].className = 'active';
+        } 
+        if (to_highlight === 11) {
+            firstUl[0].className = 'active';
+        } else if (to_highlight === 22) {
+            firstUl[1].className = 'active';
+        }
+        
         const container = document.getElementById('products');
         const products = Array.from(container.children);
         
@@ -153,8 +181,17 @@
         // Remove existing children and re-append sorted products
         container.innerHTML = '';
         products.forEach(product => container.appendChild(product));
+
+         temp_order = order
+         sort = attribute  
     }
 </script>
 
 {% endblock content %}
+
+{% block onload %}
+let order = 'desc'
+let sort = 'name' 
+sortProducts(sort, order)
+{% endblock onload %}
 

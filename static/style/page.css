@@ -689,6 +689,10 @@
     max-width: 0px;
     transition: 0.1s;
 }
+#products_page #control #buttons #sort_options ul li.active #line {
+    max-width: 100%;
+    opacity: 0.6;
+}
 #products_page #control #buttons #sort_options ul li:hover #line {
     max-width: 100%;
 }

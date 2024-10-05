@@ -333,6 +333,9 @@
         window.onload = function () {
             drawCart();
             checkCookieConsent();
+            {% block onload %}
+
+            {% endblock onload %}
         }
     </script>
 </body>
