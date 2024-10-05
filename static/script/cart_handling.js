@@ -119,7 +119,13 @@ function drawCart() {
             element.innerHTML = `Your Total: ${total} USD (Without taxes)`
         });
          total.toFixed(2);
+         
         // Loop through the cart items and create rows for each
+        if (Object.entries(cart).length == 0) {
+            pc_cart_list.innerHTML = `<p id="empty_cart">Your cart is empty for now, want to explore <a href="/products">Products</a>?</p>`;
+            mobile_cart_list.innerHTML = `<p id="empty_cart">Your cart is empty for now, want to explore <a href="/products">Products</a>?</p>`;
+            
+        }
         for (const [productId, item] of Object.entries(cart)) {
             
             
@@ -204,8 +210,3 @@ function drawCart() {
     })
     .catch(error => console.error('Error fetching cart:', error));
 }
-
-// Optional: Call drawCart on page load to immediately display the cart contents
-window.onload = function() {
-    drawCart();
-};

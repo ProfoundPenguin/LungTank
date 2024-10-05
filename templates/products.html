@@ -58,7 +58,7 @@
     </div>
     <div id="products">
         {% for product in products %}
-        <div id="product" data-name="{{ product.name }}" data-price="{{ product.price }}" data-modified="{{ product.modified }">
+        <div id="product" data-name="{{ product.name }}" data-price="{{ product.price }}" data-modified="{{ product.modified }}" data-sold="{{ product.sales_count }}">
             <div id="image">
                 {% if product.images.all %}
                     <img src="{{ product.images.all.0.image_400.url }}" alt="{{ product.name }} Image">
@@ -132,6 +132,28 @@
         console.log(search_input.value);
         search(search_input.value)
     })
+
+    function sortProducts(attribute, order) {
+        const container = document.getElementById('products');
+        const products = Array.from(container.children);
+        
+        products.sort((a, b) => {
+            const valA = a.getAttribute(`data-${attribute}`);
+            const valB = b.getAttribute(`data-${attribute}`);
+    
+            // Convert price and sold to numbers for proper sorting
+            const valueA = (attribute === 'price' || attribute === 'sold') ? parseFloat(valA) : valA.toLowerCase();
+            const valueB = (attribute === 'price' || attribute === 'sold') ? parseFloat(valB) : valB.toLowerCase();
+    
+            if (valueA < valueB) return order === 'asc' ? -1 : 1;
+            if (valueA > valueB) return order === 'asc' ? 1 : -1;
+            return 0;
+        });
+    
+        // Remove existing children and re-append sorted products
+        container.innerHTML = '';
+        products.forEach(product => container.appendChild(product));
+    }
 </script>
 
 {% endblock content %}
