@@ -76,7 +76,9 @@
                         {{ product.price }} USD
                     </p>
                 </div>
-                <button  onclick="addToCart({{ product.id }})" class="button_hover_effect_parent black b{{ product.id }}">
+                {% comment %} <button  onclick="addToCart({{ product.id }})" class="button_hover_effect_parent black b{{ product.id }}"> {% endcomment %}
+                    <button  onclick="window.location.href = '/product/{{ product.id }}'" class="button_hover_effect_parent black b{{ product.id }}">
+
                     <div id="hover_effect"></div>
                     <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M38 20C38 29.9411 29.9411 38 20 38C10.0589 38 2 29.9411 2 20" stroke="#89A19F" stroke-width="3" stroke-linecap="round"/>
@@ -85,7 +87,7 @@
                         
                         
                     <p>
-                    Add To Cart
+                    View
                 </p>
                 </button>
             </div>

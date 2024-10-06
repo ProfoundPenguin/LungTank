@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from product.models import *  # Import the Product model
 from .models import *  # Import the Product model
@@ -20,8 +20,10 @@ def index(request):
 
     return render(request, 'index.html', data) 
 
-def product_detail(request, slug):
-    return render(request, 'product_detail.html')
+def product_detail(request, id):
+    product = get_object_or_404(Product, id=id)
+    
+    return render(request, 'product_detail.html', {'product': product})
 
 def tutorial(request):
     return render(request, 'tutorial.html')
