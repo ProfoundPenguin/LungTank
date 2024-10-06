@@ -5,7 +5,7 @@
 <div id="product_detail" class="section">
     <div id="details">
         <h1>{{ product.name }}</h1>
-        <p>{{ product.price }} USD</p>
+        <p id="price">{{ product.price }} USD</p>
         <div id="buttons">
             <button  onclick="addToCart({{ product.id }})" class="button_hover_effect_parent black b{{ product.id }}">
                 <div id="hover_effect"></div>
@@ -24,8 +24,62 @@
                 <p>Buy</p>
             </button>
         </div>
+        <p id="about">Lung T-500™: The Lung T-500™ cylinder allows you to explore the depths for up to 10 minutes without surfacing. Thanks to its refined design and minimal weight the Lung T-500™ can effortlessly be used with minimal set up, making it the perfect apparatus for all your aquatic adventures.
+            Lung Turbocharger: The Lung Turbocharger is a battery powered refill station for your Lung T-500™. It completely refills anywhere in minutes, hassle-free. Simply power the Lung Turbocharger via a 18V power tool battery or plug directly into a 110V / 220V mains power socket. The Lung Turbocharger is compatible with Makita, Milwaukee, Bosch & DeWalt rechargeable 18V DC Lithium-Ion batteries (not included). Take the Lung Turbocharger with you everywhere thanks to its compact and lightweight design. It also comes with a high-pressure cable, auto-stop function, and spare filters.
+            Lung Sub-Mask: The Lung Sub-Mask is a cutting-edge full-face snorkelling mask that can be linked to Lung T-500 cylinders. It transforms the traditional snorkelling experience by providing a unique combination of features. You can breathe through the snorkel while on the surface and the Lung Tank will automatically take over once you decide to dive.
+            Refer to the User Manual & Safety Guidelines before use.</p>
+   
+            <div id="products_page">
+        
+            <div id="products">
+                <h1>More Products</h1>
+                {% for product in more_products %}
+                <div id="product" data-name="{{ product.name }}" data-price="{{ product.price }}" data-modified="{{ product.modified }}" data-sold="{{ product.sales_count }}">
+                    <div id="image">
+                        {% if product.images.all %}
+                            <img src="{{ product.images.all.0.image_400.url }}" alt="{{ product.name }} Image">
+                        {% else %}
+                            <p>Could not get the image</p>
+                        {% endif %}
+                    </div>
+                    <div id="text">
+                        <div id="des">
+                            <p id="name">
+                                {{ product.name }}
+                            </p>
+                            <p id="price">
+                                {{ product.price }} USD
+                            </p>
+                        </div>
+                        {% comment %} <button  onclick="addToCart({{ product.id }})" class="button_hover_effect_parent black b{{ product.id }}"> {% endcomment %}
+                            <button  onclick="window.location.href = '/product/{{ product.id }}'" class="button_hover_effect_parent black b{{ product.id }}">
+        
+                            <div id="hover_effect"></div>
+                            <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M38 20C38 29.9411 29.9411 38 20 38C10.0589 38 2 29.9411 2 20" stroke="#89A19F" stroke-width="3" stroke-linecap="round"/>
+                                <path d="M20 0.5C19.1716 0.5 18.5 1.17157 18.5 2C18.5 2.82843 19.1716 3.5 20 3.5L20 0.5ZM20 3.5C29.1127 3.5 36.5 10.8873 36.5 20L39.5 20C39.5 9.23045 30.7696 0.5 20 0.5L20 3.5Z" fill="#89A19F"/>
+                                </svg>
+                                
+                                
+                            <p>
+                            View
+                        </p>
+                        </button>
+                    </div>
+                </div>
+                    
+                {% empty %}
+                    <p>Could not get any products at the moment</p>
+                {% endfor %}
+            </div>
+        </div>
+
     </div>
-    <div id="images"></div>
+    <div id="images">
+        {% for image in images %}
+            <img src="{{ image.image_700.url }}" alt="{{ product.name }}">
+        {% endfor %}
+    </div>
 </div>
 
 {% endblock content %}

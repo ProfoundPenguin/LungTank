@@ -22,8 +22,11 @@ def index(request):
 
 def product_detail(request, id):
     product = get_object_or_404(Product, id=id)
+    images = product.images.all()
     
-    return render(request, 'product_detail.html', {'product': product})
+    more_products = Product.objects.prefetch_related('images').all().order_by('-sales_count')[:2]
+
+    return render(request, 'product_detail.html', {'product': product, 'images': images, 'more_products': more_products})
 
 def tutorial(request):
     return render(request, 'tutorial.html')
