@@ -1040,6 +1040,24 @@ form#contact button {
     #products_page #products {
         grid-template-columns: calc(50% - 10px) calc(50% - 10px);
     }
+    #product_detail {
+        flex-direction: row;
+        max-width: 1280px;
+    }
+    .max1280 {
+        max-width: 1280px;
+    }
+    #product_detail #details {
+        width: 50%;
+        margin-top: 100px;
+    }
+    #product_detail #images {
+        width: 50%;
+        margin-top: 100px;
+    }
+    #products_page.product_detail #products {
+        grid-template-columns: calc(50% - 20px) calc(50% - 20px) !important;
+    }
 }
 @media (min-width: 900px) {
     #selling_points {
