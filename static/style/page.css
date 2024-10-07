@@ -192,6 +192,8 @@
 
 #products #trail {
     display: flex;
+    align-items: center;
+    justify-content: start;
     /* width: 100vw; */
     width: 100%;
     gap: 12px;
@@ -204,9 +206,10 @@
     display: none;
 }
 #products #trail #product {
-    aspect-ratio: 50/65;
-    height: 50vh;
-    max-height: 700px;
+    /* aspect-ratio: 50/65; */
+    min-width: 300px;
+    max-width: 300px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     background-color: #89A19F;
@@ -253,6 +256,12 @@
     z-index: 100;
     padding: 0px;
     margin: 0px;
+}
+#trail a {
+    color: var(--black);
+}
+#trail a:visited {
+    color: var(--black);
 }
 #more_product #button_content {
     display: flex;
@@ -359,10 +368,18 @@
     background-color: var(--black);
     color: var(--white);
     text-wrap: nowrap;
+    min-width: 50px;
+    text-align: center;
+    justify-content: center;
     border-radius: 50px;
     border: 0px;
     font-size: 1.4rem;
 }
+#products #text button p {
+    width: 100%;
+    text-align: center;
+}
+
 
 #ratings {
     width: 100%;

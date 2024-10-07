@@ -644,6 +644,7 @@ body.cart #banner #mobile_menu ul {
 }
 #fanner #btt {
     height: 39px;
+    min-width: 39px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -681,7 +682,15 @@ body.cart #banner #mobile_menu ul {
 a:visited, a {
     text-decoration: none;
 }
+@media (max-width: 570px) {
+    .tab_and_pc {
+        display: none;
+    }
+}
 @media (min-width: 570px) {
+    .tab_and_pc {
+        display: block;
+    }
     .tablet_only {
         display: block;
     }
