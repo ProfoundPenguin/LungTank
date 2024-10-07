@@ -1,5 +1,8 @@
 function addToCart(productId) {
-    document.querySelector('.b'+productId).classList.add("on_wait")
+    const element = document.querySelector('.b' + productId);
+    if (element) {
+        element.classList.add("on_wait");
+    }
     fetch(`/cart/add_to_cart/${productId}/`, {
         method: 'GET',
         headers: {
@@ -9,7 +12,9 @@ function addToCart(productId) {
     .then(response => response.json())
     .then(data => {
         if (data.status === 'success') {
-            document.querySelector('.b'+productId).classList.remove("on_wait")
+            if (element) {
+                element.classList.remove("on_wait");
+            }
             drawCart()
             animateCartButton()
             // Update the cart UI, e.g., refresh cart count or display message

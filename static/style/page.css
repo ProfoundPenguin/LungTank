@@ -207,13 +207,18 @@
 }
 #products #trail #product {
     /* aspect-ratio: 50/65; */
-    min-width: 300px;
-    max-width: 300px;
-    height: 350px;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     background-color: #89A19F;
     border-radius: 34px;
+}
+@media (max-width: 900px) {
+    #products #trail #product {
+        min-width: 300px;
+        max-width: 300px;
+        height: 350px;
+    }
 }
 #product button.on_wait p {
     opacity: 0;

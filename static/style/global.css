@@ -895,6 +895,7 @@ a:visited, a {
     }
     #pc_cart #content #item #delete {
         width: 41px;
+        min-width: 41px;
         height: 41px;
         background-color: var(--white);
         display: flex;
