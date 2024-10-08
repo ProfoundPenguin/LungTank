@@ -1,4 +1,13 @@
 {% extends 'base.html' %}
+
+{% block title %}Lungtank | {{ product.name }} - Premium Diving Gear{% endblock %}
+{% block description %}Learn more about {{ product.name }}, one of Lungtank’s top-quality diving masks or refillable oxygen tanks. Perfect for your underwater adventures.{% endblock %}
+{% block og_title %}Lungtank | {{ product.name }}{% endblock %}
+{% block og_description %}Check out {{ product.name }}, a top-quality product from Lungtank’s line of diving gear, perfect for safe and comfortable dives.{% endblock %}
+{% block twitter_title %}Lungtank | {{ product.name }}{% endblock %}
+{% block twitter_description %}{{ product.name }} is designed for divers seeking safety and innovation. Explore Lungtank’s advanced diving masks and refillable oxygen tanks.{% endblock %}
+
+
 {% block extra_body_class %}
 <div id="back_button" onclick="window.history.back();" class="button_hover_effect_parent black">
 

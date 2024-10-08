@@ -5,7 +5,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lung tank</title>
+
+    <title>{% block title %}Lungtank | Advanced Underwater Diving Masks & Refillable Oxygen Tanks{% endblock %}</title>
+    <meta name="description" content="{% block description %}Discover Lungtank's innovative underwater masks and refillable oxygen tanks for an enhanced diving experience.{% endblock %}">
+    <meta name="keywords" content="Lungtank, diving masks, refillable oxygen tanks, scuba diving, underwater gear, diving equipment, dive accessories, diving technology">
+    <meta name="author" content="Lungtank">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="{% block og_title %}Lungtank | Advanced Underwater Diving Masks & Refillable Oxygen Tanks{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Experience the freedom of underwater exploration with Lungtank’s state-of-the-art diving masks and refillable oxygen tanks.{% endblock %}">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{% block twitter_title %}Lungtank | Advanced Underwater Diving Masks & Refillable Oxygen Tanks{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Explore the ocean with Lungtank’s premium diving masks and refillable oxygen tanks, designed to make your underwater adventures safer and more exciting.{% endblock %}">
 
     <link
     rel="stylesheet"
@@ -48,7 +61,7 @@
         function cart() {
             document.body.classList.add("menu")
             document.body.classList.add("cart")
-  
+            drawCart()
             blur(true)
 
             menuOpen = true
@@ -273,10 +286,10 @@
                             <img src="{% static "img/icons/facebook.webp" %}" alt="">
                         </div>
                     </a>
-                    <a href="" target="_blank">
+                    <a href="https://www.tiktok.com/@lungtank" target="_blank">
                         <div id="platform" class="button_hover_effect_parent">
                             <div id="hover_effect"></div>
-                            <img src="{% static "img/icons/email.webp" %}" alt="">
+                            <img src="{% static "img/icons/tiktok.png" %}" alt="">
                         </div>
                     </a>
                 </div>
