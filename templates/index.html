@@ -139,6 +139,24 @@
 
 
 </div>
+
+<script>
+    const progressBar = document.querySelector('#progressBar')
+    const trail = document.querySelector('#products #trail')
+    const progressThumb = document.querySelector('#progressBar #progress')
+
+    trail.addEventListener('scroll', function() {
+        var thumbWidth = progressThumb.offsetWidth
+        var scrollLeft = trail.scrollLeft
+
+        var scrollLeftInPerc = (scrollLeft * 100) / (trail.scrollWidth - trail.offsetWidth)
+
+        progressThumb.style.left = scrollLeftInPerc - ((scrollLeftInPerc * 25) / 100) +"%"
+
+        console.log('scrollLeft:', scrollLeftInPerc);
+    })
+</script>
+
 <div id="ratings">
     <div id="section_text">
         <div id="text">
